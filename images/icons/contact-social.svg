@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Social icon</title>
+  <desc id="desc">Chat bubble inside a rounded square frame</desc>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="16" stroke="#22C55E" stroke-width="3"/>
+  <path d="M22 22.5H42V37.8C42 39.6 40.6 41 38.8 41H31.4L25.5 45.5V41H25.2C23.4 41 22 39.6 22 37.8V22.5Z" stroke="#2B2F36" stroke-width="2.6" stroke-linejoin="round"/>
+</svg>

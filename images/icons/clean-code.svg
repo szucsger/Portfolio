@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Clean Code icon</title>
+  <desc id="desc">Code brackets with check mark for clean readable code</desc>
+  <rect x="1" y="1" width="62" height="62" rx="16" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M24 24L17 32L24 40" stroke="#F59E0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 24L47 32L40 40" stroke="#F59E0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 43L32 47L42 37" stroke="#F59E0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

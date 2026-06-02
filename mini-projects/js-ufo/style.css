@@ -1,0 +1,549 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #071521;
+  --bg-2: #0f2234;
+  --panel: rgba(9, 26, 41, 0.84);
+  --panel-border: rgba(119, 212, 255, 0.24);
+  --text: #dbf5ff;
+  --muted: #8db0c3;
+  --cyan: #50d9ff;
+  --lime: #66f59a;
+  --warning: #ffc94d;
+  --danger: #ff5468;
+  --shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
+  --radius-lg: 24px;
+  --radius-md: 14px;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(80, 217, 255, 0.23),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(102, 245, 154, 0.2),
+      transparent 24%
+    ),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  padding: 28px 16px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.game-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 28, 45, 0.95),
+    rgba(7, 20, 33, 0.95)
+  );
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(119, 212, 255, 0.16);
+  background: linear-gradient(
+    90deg,
+    rgba(80, 217, 255, 0.08),
+    rgba(102, 245, 154, 0.08)
+  );
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(80, 217, 255, 0.5);
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+  background: rgba(80, 217, 255, 0.08);
+}
+
+.brand-copy h1 {
+  margin: 0;
+  font:
+    700 clamp(1.1rem, 2.3vw, 1.5rem) "Chakra Petch",
+    sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-copy p {
+  margin: 1px 0 0;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: rgba(8, 24, 38, 0.7);
+  color: var(--text);
+  min-height: 42px;
+  padding: 0.5rem 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: linear-gradient(
+    90deg,
+    rgba(80, 217, 255, 0.22),
+    rgba(102, 245, 154, 0.2)
+  );
+  border-color: rgba(80, 217, 255, 0.4);
+}
+
+.button-warning {
+  border-color: rgba(255, 201, 77, 0.42);
+  color: #ffeab6;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  padding: 16px;
+}
+
+.play-area {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, rgba(80, 217, 255, 0.06), transparent 24%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(80, 217, 255, 0.04) 0,
+      rgba(80, 217, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 58px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(80, 217, 255, 0.04) 0,
+      rgba(80, 217, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 58px
+    ),
+    #081726;
+}
+
+.hud {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hud-card {
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(7, 25, 39, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.hud-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+
+.hud-card strong {
+  font:
+    700 1.2rem "Chakra Petch",
+    sans-serif;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(255, 255, 255, 0.65) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 70% 34%,
+      rgba(255, 255, 255, 0.58) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 24% 76%,
+      rgba(255, 255, 255, 0.55) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 87% 65%,
+      rgba(255, 255, 255, 0.45) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 43% 53%,
+      rgba(255, 255, 255, 0.4) 0 1px,
+      transparent 1px
+    );
+  opacity: 0.55;
+  animation: drift 20s linear infinite;
+}
+
+.ufo {
+  position: absolute;
+  /* Az UFO pozícióját a JavaScript állítja, ezért itt nincs fix top/left. */
+  width: 112px;
+  height: 48px;
+  border-radius: 50% 50% 46% 46%;
+  background: linear-gradient(180deg, #f8fdff, #9fd0ea);
+  border: 2px solid #d9effb;
+  box-shadow:
+    0 10px 18px rgba(80, 217, 255, 0.34),
+    0 0 28px rgba(80, 217, 255, 0.4);
+  display: grid;
+  place-items: center;
+  animation: hover 2.4s ease-in-out infinite;
+}
+
+.ufo::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  width: 62px;
+  height: 34px;
+  border-radius: 50% 50% 42% 42%;
+  border: 2px solid rgba(219, 245, 255, 0.94);
+  background: linear-gradient(180deg, #7be5ff, #3586b8);
+}
+
+.ufo::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  width: 64px;
+  height: 28px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(102, 245, 154, 0.6),
+    transparent 70%
+  );
+  filter: blur(4px);
+}
+
+.catcher {
+  /* Az elkapó függőleges helyét a CSS, a vízszinteset a JavaScript adja meg. */
+  position: absolute;
+  bottom: 28px;
+  width: 140px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid rgba(102, 245, 154, 0.6);
+  background: linear-gradient(
+    90deg,
+    rgba(102, 245, 154, 0.2),
+    rgba(80, 217, 255, 0.25)
+  );
+  box-shadow: 0 8px 16px rgba(102, 245, 154, 0.24);
+}
+
+.status-pill {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 201, 77, 0.45);
+  color: #ffe9ac;
+  background: rgba(255, 201, 77, 0.08);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.side-panel {
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  padding: 14px;
+}
+
+.panel-block {
+  border: 1px solid rgba(119, 212, 255, 0.17);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(6, 19, 30, 0.58);
+}
+
+.panel-block h2,
+.panel-block h3 {
+  margin: 0 0 8px;
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.panel-block h2 {
+  font-size: 1rem;
+}
+
+.panel-block h3 {
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.panel-block p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.key {
+  width: 25%;
+  border: 1px solid rgba(119, 212, 255, 0.34);
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 6px;
+  font:
+    500 0.85rem "Chakra Petch",
+    sans-serif;
+  background: rgba(8, 26, 40, 0.68);
+  color: var(--cyan);
+}
+
+.panel-stats {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.stat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.stat-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  border-bottom: 1px dashed rgba(141, 176, 195, 0.24);
+  padding-bottom: 6px;
+}
+
+.stat-list li strong {
+  color: var(--text);
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1rem;
+}
+
+.progress-wrap {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(141, 176, 195, 0.2);
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 46%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--warning), var(--danger));
+}
+
+@keyframes hover {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    min-height: auto;
+  }
+
+  .play-area {
+    min-height: 470px;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    flex: 1;
+  }
+
+  .hud {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pop {
+  display: inline-block;
+  transform-origin: center;
+  transition:
+    transform 150ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    color 150ms;
+}
+.pop.active {
+  transform: scale(1.25);
+}
+
+.bounce {
+  transition: transform 120ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: transform;
+}
+.bounce.active {
+  transform: translateY(-6px);
+}
+
+.floating-score {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(-20px);
+  transition:
+    opacity 800ms,
+    transform 600ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(7, 20, 33, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  text-align: center;
+  display: none;
+}
+
+.game-over-overlay h2 {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin: 0;
+}
+
+.game-over-overlay p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0;
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gergely Szücs | Frontend Developer Portfolio</title>
+    <meta name="description"
+        content="Frontend Developer portfolio with responsive web interfaces, modern UI design, and mini projects built with HTML, CSS, JavaScript, TypeScript, and Angular." />
+    <meta name="keywords"
+        content="frontend developer, portfolio, html, css, javascript, typescript, angular, responsive design, ui ux" />
+    <meta name="author" content="Gergely Szűcs" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gergely Szűcs | Frontend Developer Portfolio" />
+    <meta property="og:description"
+        content="Modern frontend portfolio with featured projects and mini project showcases." />
+    <meta property="og:image" content="images/og-cover.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gergely Szűcs | Frontend Developer Portfolio" />
+    <meta name="twitter:description"
+        content="Modern frontend portfolio with featured projects and mini project showcases." />
+    <meta name="twitter:image" content="images/og-cover.jpg" />
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <!-- Sticky header with primary navigation, theme toggle, and language switch -->
+    <header class="py-3 border-bottom sticky-top">
+        <nav class="container header-nav">
+            <a href="#hero" data-i18n="brand">Frontend Dev</a>
+            <div class="header-right">
+                <ul class="d-flex list-unstyled mb-0">
+                    <li class="ms-3"><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li class="ms-3"><a href="#tech-stack" data-i18n="nav.tech">Tech Stack</a></li>
+                    <li class="ms-3"><a href="#mini-projects" data-i18n="nav.projects">Mini Projects</a></li>
+                    <li class="ms-3"><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <label class="theme-switch" for="theme-toggle">
+                        <span class="theme-switch__label theme-switch__label--light">Light</span>
+                        <input type="checkbox" id="theme-toggle" class="theme-switch__input" />
+                        <span class="theme-switch__track">
+                            <span class="theme-switch__thumb"></span>
+                        </span>
+                        <span class="theme-switch__label theme-switch__label--dark">Dark</span>
+                    </label>
+                    <label class="lang-switch" for="lang-toggle" aria-label="Toggle language">
+                        <span class="lang-switch__label lang-switch__label--en">EN</span>
+                        <input type="checkbox" id="lang-toggle" class="lang-switch__input" />
+                        <span class="lang-switch__track">
+                            <span class="lang-switch__thumb"></span>
+                        </span>
+                        <span class="lang-switch__label lang-switch__label--hu">HU</span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main page content starts here -->
+    <main>
+        <!-- Hero section: personal headline, short intro, CTA buttons, and quick stats -->
+        <section id="hero" class="py-5">
+            <!-- Hero two-column layout: intro content on the left, profile visual on the right -->
+            <div class="container hero-grid">
+                <!-- Left hero content: title, short description, CTAs, and quick stats -->
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        Frontend
+                        <span class="hero-accent">Developer</span>
+                    </h1>
+
+                    <p class="hero-lead" data-i18n="hero.lead">
+                        Designing and developing modern, user-friendly web experiences with the latest technologies.
+                    </p>
+
+                    <!-- Primary hero actions: jump to projects or contact -->
+                    <div class="hero-actions">
+                        <a href="#mini-projects" class="btn btn-dark" data-i18n="hero.ctaProjects">View Projects</a>
+                        <a href="#contact" class="btn btn-outline-dark" data-i18n="hero.ctaContact">Contact Me</a>
+                    </div>
+
+                    <!-- Compact stat highlights for role, start year, and project count -->
+                    <div class="hero-stats">
+                        <div class="stat-item"><strong data-i18n="hero.stat1.value">Junior</strong><span
+                                data-i18n="hero.stat1.label">Frontend developer</span></div>
+                        <div class="stat-item"><strong>2025</strong><span data-i18n="hero.stat2.label">Frontend journey
+                                started</span></div>
+                        <div class="stat-item"><strong>3+</strong><span data-i18n="hero.stat3.label">Practice
+                                projects</span></div>
+                    </div>
+                </div>
+
+                <!-- Right hero visual: profile image with availability status badge -->
+                <figure class="hero-figure">
+                    <img src="images/own-picture.png" alt="Frontend Developer Portrait" />
+                    <figcaption class="hero-status"><span class="dot"></span><span data-i18n="hero.status">Active
+                            Status</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- About section: personal learning approach and key frontend mindset cards -->
+        <section id="about" class="py-5">
+            <!-- About container: intro text, value cards, and closing statement -->
+            <div class="container mt-3">
+                <!-- About heading and introductory paragraph -->
+                <div class=" about-intro">
+                    <h2 class="mb-3" data-i18n="about.title">Growing Through Practice and Passion for Frontend
+                        Development
+                    </h2>
+                    <p class="text-secondary mb-4" data-i18n="about.intro">I started my frontend journey with a strong
+                        desire to understand how
+                        modern web interfaces are built.
+                        Since
+                        completing my training, I’ve been actively practicing by creating small, focused projects that
+                        help
+                        me
+                        strengthen my problem‑solving skills and deepen my understanding of UI/UX principles.</p>
+                </div>
+                <!-- Four key mindset cards describing learning and coding approach -->
+                <div class="row g-4 mt-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="card h-100 p-3 shadow-sm accent-purple">
+                            <img src="images/icons/learning-first.svg" alt="Learning First icon"
+                                class="mb-3 about-icon " />
+                            <h3 data-i18n="about.card1.title">Learning‑First Approach</h3>
+                            <p data-i18n="about.card1.desc">I learn by building real projects and experimenting with new
+                                concepts. Every small
+                                project
+                                helps me
+                                understand the fundamentals better and grow step by step.</p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="card h-100 p-3  shadow-sm accent-blue">
+                            <img src="images/icons/continuous-improvement.svg" alt="Continuous Improvement icon"
+                                class="mb-3 about-icon" />
+                            <h3 data-i18n="about.card2.title">Continuous Improvement</h3>
+                            <p data-i18n="about.card2.desc">I am committed to continuously improving my skills and
+                                knowledge. I regularly seek
+                                feedback,
+                                reflect
+                                on my work, and explore new technologies to stay up-to-date with industry trends.</p>
+                        </article>
+                    </div>
+                    <div class=" col-12 col-md-6 col-lg-3">
+                        <article class="card h-100 p-3 shadow-sm accent-orange">
+                            <img src="images/icons/clean-code.svg" alt="Clean Code icon" class="mb-3 about-icon " />
+                            <h3 data-i18n="about.card3.title">Clean and Understandable Code</h3>
+                            <p data-i18n="about.card3.desc">I prioritize writing clean, readable, and maintainable code.
+                                I believe that good code
+                                is
+                                not just
+                                about functionality but also about clarity and ease of understanding for other
+                                developers.
+                            </p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="card h-100 p-3 shadow-sm accent-green">
+                            <img src="images/icons/component-thinking.svg" alt="Component Thinking icon"
+                                class="mb-3 about-icon " />
+
+                            <h3 data-i18n="about.card4.title">Component‑Based Thinking</h3>
+                            <p data-i18n="about.card4.desc">I approach frontend development with a component‑based
+                                mindset, breaking down interfaces
+                                into
+                                reusable, modular components. This approach enhances maintainability, scalability, and
+                                collaboration
+                                within development teams.</p>
+                        </article>
+                    </div>
+                </div>
+                <!-- Closing note summarizing workflow values -->
+                <div class="container">
+                    <p class="text-secondary mb-4 mt-3" data-i18n="about.closing">My workflow is centered around
+                        clarity, usability, and
+                        continuous
+                        improvement. I believe that consistent
+                        practice and real‑world experimentation are the keys to becoming a strong frontend developer.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech stack section: core frontend technologies and proficiency highlights -->
+        <section id="tech-stack" class="py-5">
+            <!-- Tech stack container: section intro and technology cards grid -->
+            <div class="container">
+                <!-- Tech stack heading and short description -->
+                <div class="about-intro">
+                    <h2 class="mb-3" data-i18n="tech.title">Tech Stack</h2>
+                    <p class="text-secondary mb-4" data-i18n="tech.intro">Core technologies I use in my frontend
+                        learning journey.</p>
+                </div>
+
+                <!-- Technology cards with category tags and proficiency dots -->
+                <div class="tech-grid">
+                    <article class="tech-card tech-html">
+                        <div class="tech-icon-wrap icon-html"><img src="images/icons/tech-html.svg" alt="HTML" /></div>
+                        <h3 data-i18n="tech.card.html.title">HTML</h3>
+                        <span class="tech-tag" data-i18n="tech.card.html.tag">Markup</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot on"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-css">
+                        <div class="tech-icon-wrap icon-css"><img src="images/icons/tech-css.svg" alt="CSS" /></div>
+                        <h3 data-i18n="tech.card.css.title">CSS</h3>
+                        <span class="tech-tag" data-i18n="tech.card.css.tag">Styling</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-js">
+                        <div class="tech-icon-wrap icon-js"><img src="images/icons/tech-javascript.svg"
+                                alt="JavaScript" /></div>
+                        <h3 data-i18n="tech.card.js.title">JavaScript</h3>
+                        <span class="tech-tag" data-i18n="tech.card.js.tag">Language</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot on"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-ts">
+                        <div class="tech-icon-wrap icon-ts"><img src="images/icons/tech-typescript.svg"
+                                alt="TypeScript" /></div>
+                        <h3 data-i18n="tech.card.ts.title">TypeScript</h3>
+                        <span class="tech-tag" data-i18n="tech.card.ts.tag">Language</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-angular">
+                        <div class="tech-icon-wrap icon-angular"><img src="images/icons/tech-angular.svg"
+                                alt="Angular" /></div>
+                        <h3 data-i18n="tech.card.angular.title">Angular</h3>
+                        <span class="tech-tag" data-i18n="tech.card.angular.tag">Framework</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-github">
+                        <div class="tech-icon-wrap icon-github"><img src="images/icons/tech-github.svg" alt="GitHub" />
+                        </div>
+                        <h3 data-i18n="tech.card.github.title">GitHub</h3>
+                        <span class="tech-tag" data-i18n="tech.card.github.tag">Tools</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot"></span></div>
+                    </article>
+
+                    <article class="tech-card tech-responsive">
+                        <div class="tech-icon-wrap icon-responsive"><img src="images/icons/tech-responsive.svg"
+                                alt="Responsive Design" /></div>
+                        <h3 data-i18n="tech.card.responsive.title">Responsive Design</h3>
+                        <span class="tech-tag" data-i18n="tech.card.responsive.tag">UI/UX</span>
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                                class="dot on"></span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mini projects section: embedded previews and links to practice projects -->
+        <section id="mini-projects" class="py-5">
+            <!-- Projects container with responsive card layout -->
+            <div class="container">
+                <!-- Projects row: intro + project cards -->
+                <div class="row g-4">
+                    <!-- Section title and short intro text -->
+                    <div class="col-12">
+                        <h2 class="mb-3" data-i18n="projects.title">Learning Projects</h2>
+                        <p class="mini-intro" data-i18n="projects.intro">A selection of my latest works that showcase my
+                            skills and creativity</p>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <!-- Project card: JavaScript UFO game with live preview and links -->
+                        <div class="card h-100 p-3 shadow-sm">
+                            <div class="mini-preview" aria-hidden="true">
+                                <iframe src="mini-projects/js-ufo/ufo-catcher.html" title="UFO Catcher előnézet"
+                                    loading="lazy" scrolling="no"></iframe>
+                            </div>
+                            <h3 data-i18n="projects.card1.title">JavaScript Practice Project – UFO Catcher Game</h3>
+                            <p class="mb-3" data-i18n="projects.card1.desc">A simple retro‑style JavaScript game built
+                                to practice DOM manipulation,
+                                animations,
+                                collision
+                                detection,
+                                and game loop logic. This project helped me understand how interactive browser
+                                applications
+                                work.
+                            </p>
+                            <div class="mini-project-actions">
+                                <a class="mini-open-btn" href="mini-projects/js-ufo/ufo-catcher.html" target="_blank"
+                                    rel="noopener noreferrer">Open Project</a>
+                                <a class="mini-github-btn"
+                                    href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/js-ufo"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <!-- Project card: TypeScript dashboard with live preview and links -->
+                        <div class="card h-100 p-3 shadow-sm">
+                            <div class="mini-preview" aria-hidden="true">
+                                <iframe src="mini-projects/ts-dashboard/dashboard.html"
+                                    title="Statistics Dashboard előnézet" loading="lazy" scrolling="no"></iframe>
+                            </div>
+                            <h3 data-i18n="projects.card2.title">TypeScript Practice Project – Statistics Dashboard</h3>
+                            <p class="mb-3" data-i18n="projects.card2.desc">A TypeScript‑based dashboard that loads
+                                local JSON data, calculates basic
+                                statistics, and
+                                displays
+                                them
+                                using simple charts. This project helped me learn TypeScript interfaces, modules, and
+                                data
+                                handling.
+                            </p>
+                            <div class="mini-project-actions">
+                                <a class="mini-open-btn" href="mini-projects/ts-dashboard/dashboard.html"
+                                    target="_blank" rel="noopener noreferrer">Open Project</a>
+                                <a class="mini-github-btn"
+                                    href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/ts-dashboard"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <!-- Project card: upcoming Angular project placeholder -->
+                        <div class="card h-100 p-3 shadow-sm">
+                            <h3 data-i18n="projects.card3.title">Angular Practice Project – Coming Soon</h3>
+                            <p class="mb-3" data-i18n="projects.card3.desc">An upcoming Angular practice project where I
+                                will apply component‑based
+                                architecture,
+                                routing,
+                                and
+                                service‑based data handling. This will be my next step in becoming more confident with
+                                Angular.
+                            </p>
+                            <a class="mini-github-btn"
+                                href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/angular-project"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section: contact cards and message form -->
+        <section id="contact" class="py-5">
+            <!-- Contact container with intro text, contact cards, and form -->
+            <div class="container">
+                <!-- Contact section heading and invitation text -->
+                <div>
+                    <h2 data-i18n="contact.title">Let’s Connect</h2>
+                    <p data-i18n="contact.intro">If you’d like to collaborate, have feedback, or want to discuss a
+                        project idea, feel free to
+                        reach out.
+                        I’m
+                        always open to learning opportunities and new challenges.</p>
+                </div>
+                <!-- Contact content split: information cards on left, form on right -->
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4">
+                        <!-- Contact info cards: email, location, and social channels -->
+                        <div class="contact-stack">
+                            <div class="contact-card card p-3 mb-3 contact-email">
+                                <img src="images/icons/contact-email.svg" alt="Email icon" class="mb-3 contact-icon" />
+                                <h3 data-i18n="contact.cardEmail.title">Email</h3>
+                                <p data-i18n="contact.cardEmail.desc">Write an email and I will respond within 24 hours.
+                                </p>
+                            </div>
+                            <div class="contact-card card p-3 mb-3 contact-location">
+                                <img src="images/icons/contact-location.svg" alt="Location icon"
+                                    class="mb-3 contact-icon" />
+                                <h3 data-i18n="contact.cardLocation.title">Location</h3>
+                                <p data-i18n="contact.cardLocation.desc">Based in Szombathely area, available for remote
+                                    work
+                                    and collaboration.</p>
+                            </div>
+                            <div class="contact-card card p-3 mb-3 contact-social">
+                                <img src="images/icons/contact-social.svg" alt="Social icon"
+                                    class="mb-3 contact-icon" />
+                                <h3 data-i18n="contact.cardSocial.title">Social</h3>
+                                <p data-i18n="contact.cardSocial.desc">Connect with me on social media platforms for
+                                    updates and networking.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8" id="contact-form">
+                        <!-- Contact form fields for name, email, and message -->
+                        <form action="https://formspree.io/f/xpwkrdjk" method="POST">
+                            <label for="contact-name" class="form-label" data-i18n="contact.form.name">Your Name</label>
+                            <input type="text" name="contact-name" id="contact-name" class="form-control mb-3"
+                                placeholder="Your Name" data-i18n-placeholder="contact.form.namePlaceholder" required />
+                            <label for="contact-email" class="form-label" data-i18n="contact.form.email">Your
+                                Email</label>
+                            <input type="email" name="contact-email" id="contact-email" class="form-control mb-3"
+                                placeholder="Your Email" data-i18n-placeholder="contact.form.emailPlaceholder"
+                                required />
+                            <label for="contact-message" class="form-label" data-i18n="contact.form.message">Your
+                                Message</label>
+                            <textarea name="contact-message" id="contact-message" class="form-control mb-3"
+                                placeholder="Your Message" data-i18n-placeholder="contact.form.messagePlaceholder"
+                                required></textarea>
+                            <button type="submit" id="contact-button" class="btn btn-dark w-100"
+                                data-i18n="contact.form.send">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA section: closing call-to-action linking to contact -->
+        <section>
+            <!-- Final conversion block encouraging collaboration -->
+            <div class="container">
+                <div class="final-cta">
+                    <h2 data-i18n="cta.title">Ready for the next project?</h2>
+                    <p data-i18n="cta.desc">Let's build something clean, modern and useful together. I'm open to junior
+                        frontend
+                        opportunities.</p>
+                    <a href="#contact" class="btn btn-light final-cta-btn" data-i18n="cta.button">Get in touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section: brand summary, quick links, and social links -->
+    <footer class="site-footer py-5 border-top">
+        <!-- Footer container with three columns and a bottom legal row -->
+        <div class="container">
+            <div class="row g-4">
+                <!-- Footer column: brand name and short positioning text -->
+                <div class="col-12 col-md-5 col-lg-4">
+                    <h3 class="footer-title" data-i18n="footer.brand">Frontend Dev</h3>
+                    <p class="footer-text" data-i18n="footer.brandDesc">Modern web interfaces focused on clarity,
+                        performance and responsive user
+                        experience.</p>
+                </div>
+                <!-- Footer column: internal quick navigation links -->
+                <div class="col-6 col-md-3 col-lg-4">
+                    <h4 class="footer-subtitle" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="footer-links list-unstyled mb-0">
+                        <li><a href="#hero" data-i18n="footer.linkHome">Home</a></li>
+                        <li><a href="#about" data-i18n="footer.linkAbout">About</a></li>
+                        <li><a href="#mini-projects" data-i18n="footer.linkProjects">Projects</a></li>
+                        <li><a href="#contact" data-i18n="footer.linkContact">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Footer column: external social and contact links -->
+                <div class="col-6 col-md-4 col-lg-4">
+                    <h4 class="footer-subtitle" data-i18n="footer.social">Social</h4>
+                    <ul class="footer-links list-unstyled mb-0">
+                        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="mailto:hello@example.com" data-i18n="footer.email">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer bottom row: copyright and short signature -->
+            <div
+                class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mt-4 pt-3">
+                <p class="mb-0 small" data-i18n="footer.copy">© 2026 Frontend Developer Portfolio. All rights reserved.
+                </p>
+                <p class="mb-0 small" data-i18n="footer.made">Made with focus and consistency.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

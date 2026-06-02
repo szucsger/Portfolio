@@ -1,0 +1,28 @@
+.chart-placeholder {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  height: 320px;
+}
+
+.chart-placeholder canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.remove-btn {
+  min-width: 84px;
+}
+
+#tx-list .list-group-item {
+  border-left: 0;
+  border-right: 0;
+}
+
+#tx-list .list-group-item:first-child {
+  border-top: 0;
+}
+
+#tx-list .list-group-item:last-child {
+  border-bottom: 0;
+}

@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">GitHub icon</title>
+  <path d="M22 24L20 18L25 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M42 24L44 18L39 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 50C43 50 50 42.5 50 33C50 25 42 19 32 19C22 19 14 25 14 33C14 42.5 21 50 32 50Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M25 39C26.5 40.5 29 41.5 32 41.5C35 41.5 37.5 40.5 39 39" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="26" cy="32" r="2" fill="white"/>
+  <circle cx="38" cy="32" r="2" fill="white"/>
+</svg>

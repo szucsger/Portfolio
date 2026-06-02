@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <main class="container py-4">
+        <header class="mb-4 text-center">
+            <h1>Financial Dashboard</h1>
+            <p class="text-secondary">Track your financial health at a glance</p>
+        </header>
+
+        <section class="row g-3 mb-4">
+            <article class="col-12 col-md-6 col-xl-3">
+                <div class="card p-3">
+                    <h2 class="h6 mb-1">Current Balance</h2>
+                    <p id="balance-value" class="fs-4 mb-0">$0.00</p>
+                </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-xl-3">
+                <div class="card p-3">
+                    <h2 class="h6 mb-1">Monthly Income</h2>
+                    <p id="income-value" class="fs-4 mb-0">$0.00</p>
+                </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-xl-3">
+                <div class="card p-3">
+                    <h2 class="h6 mb-1">Monthly Expenses</h2>
+                    <p id="expense-value" class="fs-4 mb-0">$0.00</p>
+                </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-xl-3">
+                <div class="card p-3">
+                    <h2 class="h6 mb-1">Saving Rate</h2>
+                    <p id="saving-rate-value" class="fs-4 mb-0">0%</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="row g-4 mb-4" aria-label="Charts">
+            <article class="col-12 col-xl-6">
+                <div class="card p-3 h-100">
+                    <h2 class="h5 mb-3">Expenses by Category</h2>
+                    <div id="expense-category-chart" class="chart-placeholder">
+                        <canvas id="expense-category-canvas" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </article>
+
+            <article class="col-12 col-xl-6">
+                <div class="card p-3 h-100">
+                    <h2 class="h5 mb-3">Income vs Expense Trend</h2>
+                    <div id="income-expense-chart" class="chart-placeholder">
+                        <canvas id="income-expense-canvas" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="row g-4">
+            <article class="col-12 col-lg-5">
+                <div class="card p-3">
+                    <h2 class="h5 mb-3">Add Transaction</h2>
+
+                    <form id="tx-form" class="d-grid gap-2">
+                        <select id="tx-type" class="form-select" required>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+
+                        <input id="tx-category" type="text" class="form-control" placeholder="Category" required />
+                        <input id="tx-amount" type="number" class="form-control" placeholder="Amount" min="0.01"
+                            step="0.01" required />
+                        <input id="tx-date" type="date" class="form-control" required />
+                        <input id="tx-note" type="text" class="form-control" placeholder="Note (optional)" />
+
+                        <button type="submit" class="btn btn-dark" id="tx-submit">Add Transaction</button>
+                    </form>
+                </div>
+            </article>
+
+            <article class="col-12 col-lg-7">
+                <div class="card p-3">
+                    <h2 class="h5 mb-3">Recent Transactions</h2>
+                    <div class="row g-2 mb-3">
+                        <div class="col-12 col-md-6">
+                            <select name="tx-sort" id="tx-filter" class="form-select mb-2">
+                                <option value="all">All</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <select name="tx-sort" id="tx-sort" class="form-select mb-3">
+                                <option value="date-desc">Date: Newest First</option>
+                                <option value="date-asc">Date: Oldest First</option>
+                                <option value="amount-desc">Amount: High to Low</option>
+                                <option value="amount-asc">Amount: Low to High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <ul id="tx-list" class="list-group mb-2"></ul>
+                    <p id="empty-state" class="text-secondary mb-0">No transactions yet.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

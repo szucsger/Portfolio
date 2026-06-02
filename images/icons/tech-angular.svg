@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Angular icon</title>
+  <path d="M32 10L50 16L47 44L32 53L17 44L14 16L32 10Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M32 20L24 40H28L30 35H34L36 40H40L32 20Z" fill="white"/>
+  <path d="M30.8 31.5H33.2L32 27.7L30.8 31.5Z" fill="#4F46E5"/>
+</svg>

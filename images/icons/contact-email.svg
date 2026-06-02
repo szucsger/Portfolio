@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Email icon</title>
+  <desc id="desc">Envelope inside a rounded square frame</desc>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="16" stroke="#1D9BF0" stroke-width="3"/>
+  <rect x="18" y="22" width="28" height="20" rx="3.5" stroke="#2B2F36" stroke-width="2.6"/>
+  <path d="M19.5 24L32 33L44.5 24" stroke="#2B2F36" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

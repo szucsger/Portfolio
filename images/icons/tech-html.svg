@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">HTML icon</title>
+  <path d="M32 10L50 16L47 44L32 53L17 44L14 16L32 10Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <text x="32" y="42" font-size="24" font-weight="bold" fill="white" text-anchor="middle">H</text>
+  <path d="M32 28L28 38H36L32 28Z" fill="white"/>
+</svg>

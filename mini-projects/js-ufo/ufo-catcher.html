@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO Catcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-badge">U</div>
+                <div class="brand-copy">
+                    <h1>UFO CATCHER</h1>
+                    <p>Arcade Practice Layout</p>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <button id="start-button" class="button button-primary" type="button">Start Mission</button>
+                <button id="restart-button" class="button button-warning" type="button">Restart</button>
+                <button id="pause-button" class="button" type="button">Pause</button>
+            </div>
+        </header>
+
+        <main class="layout">
+            <section class="play-area" id="game-area" aria-label="UFO Catcher play area">
+                <div class="hud">
+                    <div class="hud-card">
+                        <span>SCORE</span>
+                        <!-- A pontszámot a JavaScript frissíti. -->
+                        <strong id="score-value" class="pop" aria-live="polite">0170</strong>
+                    </div>
+                    <div class="hud-card">
+                        <span>TIME LEFT</span>
+                        <strong id="time-value">00:37</strong>
+                    </div>
+                    <div class="hud-card">
+                        <span>STREAK</span>
+                        <strong id="streak-value">x4</strong>
+                    </div>
+                </div>
+
+                <div class="stars" aria-hidden="true"></div>
+                <!-- Az UFO és az elkapó pozícióját a JavaScript kezeli. -->
+                <div id="ufo" class="ufo" aria-hidden="true"></div>
+                <!-- Az elkapó függőleges pozícióját a CSS, a vízszinteset a JavaScript kezeli. -->
+                <div id="catcher" class="catcher" aria-hidden="true"></div>
+                <div id="wave-indicator" class="status-pill">WAVE 2 / 5</div>
+                <div id="game-over" class="game-over-overlay" hidden>
+                    <h2>MISSION COMPLETE</h2>
+                    <p>Final Score: <strong id="final-score">0</strong></p>
+                    <button class="button button-primary" id="play-again-button" type="button">Play Again</button>
+                </div>
+            </section>
+
+            <aside class="side-panel">
+                <section class="panel-block">
+                    <h2>Mission Brief</h2>
+                    <p>
+                        Catch the UFO before the timer runs out. Each successful hit grants points and ramps up the
+                        pressure.
+                    </p>
+                </section>
+
+                <section class="panel-block">
+                    <h3>Controls</h3>
+                    <div class="controls">
+                        <div class="key">A</div>
+                        <div class="key">D</div>
+                        <div class="key">←</div>
+                        <div class="key">→</div>
+                    </div>
+                </section>
+
+                <section class="panel-block panel-stats">
+                    <h3>Session Stats</h3>
+                    <ul class="stat-list">
+                        <li><span>Best Score</span><strong id="best-score">3120</strong></li>
+                        <li><span>Total Catches</span><strong id="total-catches">89</strong></li>
+                        <li><span>Accuracy</span><strong id="accuracy">73%</strong></li>
+                    </ul>
+
+                    <div class="progress-wrap">
+                        <div class="progress-label">
+                            <span>Difficulty</span>
+                            <span id="difficulty-label">Medium</span>
+                        </div>
+                        <div class="progress-track">
+                            <div id="difficulty-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </main>
+    </div>
+    <script src="ufo-catcher.js"></script>
+</body>
+
+</html>
