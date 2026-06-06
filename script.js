@@ -76,8 +76,8 @@ const translations = {
     hu: "Frontend fejlesztő",
   },
   "hero.stat2.label": {
-    en: "Frontend journey started",
-    hu: "A frontend utam kezdete",
+    en: "Developer journey started",
+    hu: "A fejlesztői utam kezdete",
   },
   "hero.stat3.label": {
     en: "Practice projects",
@@ -220,12 +220,24 @@ const translations = {
     hu: "Egy TypeScript-alapú dashboard, amely helyi JSON-adatokat tölt be, alapstatisztikákat számol, és egyszerű diagramokon jeleníti meg azokat. A projekt segített megtanulni a TypeScript interfészek, modulok és adatkezelés alapjait.",
   },
   "projects.card3.title": {
-    en: "Angular Practice Project - Coming Soon",
-    hu: "Angular gyakorló projekt - Hamarosan",
+    en: "Frontend Mentor Landing Page",
+    hu: "Frontend Mentor Landing Page",
   },
   "projects.card3.desc": {
-    en: "An upcoming Angular practice project where I will apply component-based architecture, routing, and service-based data handling. This will be my next step in becoming more confident with Angular.",
-    hu: "Egy közelgő Angular gyakorló projekt, amelyben komponensalapú architektúrával, routinggal és service-alapú adatkezeléssel fogok dolgozni. Ez lesz a következő lépés az Angular magabiztosabb használata felé.",
+    en: "I have successfully completed this Frontend Mentor landing page project, implementing full responsiveness, modern CSS layouts, and JavaScript-based interactivity. It was an excellent practice for sharpening my frontend skills and boosting my confidence.",
+    hu: "Sikeresen elkészítettem ezt a Frontend Mentor landing page-et, megvalósítva a teljes reszponzivitást, a modern CSS elrendezéseket és a JavaScript-alapú interaktivitást. Kiváló gyakorlat volt a frontend készségeim fejlesztésére és a magabiztosságom növelésére.",
+  },
+  "projects.card4.title": {
+    en: "Simple Landing Page",
+    hu: "Egyszerű Landing Page",
+  },
+  "projects.card4.desc": {
+    en: "A simple landing page project where I applied responsive design and modern CSS techniques. This project helped me build more confidence in frontend development.",
+    hu: "Egy egyszerű landing page projekt, amelyben reszponzív dizájnt és modern CSS technikákat alkalmaztam. Ez a projekt segített abban, hogy magabiztosabbá váljak a frontend fejlesztésben.",
+  },
+  "projects.open": {
+    en: "Open Project",
+    hu: "Megnyitás",
   },
   "projects.repo": {
     en: "GitHub Repo",

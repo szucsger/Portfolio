@@ -9,18 +9,18 @@
         content="Frontend Developer portfolio with responsive web interfaces, modern UI design, and mini projects built with HTML, CSS, JavaScript, TypeScript, and Angular." />
     <meta name="keywords"
         content="frontend developer, portfolio, html, css, javascript, typescript, angular, responsive design, ui ux" />
-    <meta name="author" content="Gergely Szűcs" />
+    <meta name="author" content="Gergely Szücs" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gergely Szűcs | Frontend Developer Portfolio" />
+    <meta property="og:title" content="Gergely Szücs | Frontend Developer Portfolio" />
     <meta property="og:description"
         content="Modern frontend portfolio with featured projects and mini project showcases." />
     <meta property="og:image" content="images/og-cover.jpg" />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Gergely Szűcs | Frontend Developer Portfolio" />
+    <meta name="twitter:title" content="Gergely Szücs | Frontend Developer Portfolio" />
     <meta name="twitter:description"
         content="Modern frontend portfolio with featured projects and mini project showcases." />
     <meta name="twitter:image" content="images/og-cover.jpg" />
@@ -42,10 +42,12 @@
             <a href="#hero" data-i18n="brand">Frontend Dev</a>
             <div class="header-right">
                 <ul class="d-flex list-unstyled mb-0">
-                    <li class="ms-3"><a href="#about" data-i18n="nav.about">About</a></li>
-                    <li class="ms-3"><a href="#tech-stack" data-i18n="nav.tech">Tech Stack</a></li>
-                    <li class="ms-3"><a href="#mini-projects" data-i18n="nav.projects">Mini Projects</a></li>
-                    <li class="ms-3"><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    <li class="ms-3 "><a href="#about" class="navElements" data-i18n="nav.about">About</a></li>
+                    <li class="ms-3 "><a href="#tech-stack" class="navElements" data-i18n="nav.tech">Tech Stack</a></li>
+                    <li class="ms-3 "><a href="#mini-projects" class="navElements" data-i18n="nav.projects">Mini
+                            Projects</a>
+                    </li>
+                    <li class="ms-3 "><a href="#contact" class="navElements" data-i18n="nav.contact">Contact</a></li>
                 </ul>
                 <div class="header-actions">
                     <label class="theme-switch" for="theme-toggle">
@@ -231,7 +233,7 @@
                         <h3 data-i18n="tech.card.js.title">JavaScript</h3>
                         <span class="tech-tag" data-i18n="tech.card.js.tag">Language</span>
                         <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
-                                class="dot on"></span></div>
+                                class="dot"></span></span></div>
                     </article>
 
                     <article class="tech-card tech-ts">
@@ -248,7 +250,7 @@
                                 alt="Angular" /></div>
                         <h3 data-i18n="tech.card.angular.title">Angular</h3>
                         <span class="tech-tag" data-i18n="tech.card.angular.tag">Framework</span>
-                        <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
+                        <div class="tech-dots"><span class="dot on"></span><span class="dot"></span><span
                                 class="dot"></span></div>
                     </article>
 
@@ -267,7 +269,7 @@
                         <h3 data-i18n="tech.card.responsive.title">Responsive Design</h3>
                         <span class="tech-tag" data-i18n="tech.card.responsive.tag">UI/UX</span>
                         <div class="tech-dots"><span class="dot on"></span><span class="dot on"></span><span
-                                class="dot on"></span></div>
+                                class="dot"></span></div>
                     </article>
                 </div>
             </div>
@@ -304,7 +306,7 @@
                             </p>
                             <div class="mini-project-actions">
                                 <a class="mini-open-btn" href="mini-projects/js-ufo/ufo-catcher.html" target="_blank"
-                                    rel="noopener noreferrer">Open Project</a>
+                                    rel="noopener noreferrer" data-i18n="projects.open">Open Project</a>
                                 <a class="mini-github-btn"
                                     href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/js-ufo"
                                     target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
@@ -331,7 +333,7 @@
                             </p>
                             <div class="mini-project-actions">
                                 <a class="mini-open-btn" href="mini-projects/ts-dashboard/dashboard.html"
-                                    target="_blank" rel="noopener noreferrer">Open Project</a>
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.open">Open Project</a>
                                 <a class="mini-github-btn"
                                     href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/ts-dashboard"
                                     target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
@@ -339,20 +341,48 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
-                        <!-- Project card: upcoming Angular project placeholder -->
+                        <!-- Project card: Frontend Mentor Landing Page -->
                         <div class="card h-100 p-3 shadow-sm">
-                            <h3 data-i18n="projects.card3.title">Angular Practice Project – Coming Soon</h3>
-                            <p class="mb-3" data-i18n="projects.card3.desc">An upcoming Angular practice project where I
-                                will apply component‑based
-                                architecture,
-                                routing,
-                                and
-                                service‑based data handling. This will be my next step in becoming more confident with
-                                Angular.
+                            <div class="mini-preview" aria-hidden="true">
+                                <iframe src="/mini-projects/loopstudios-landing-page-main/index.html"
+                                    title="Frontend Mentor Landing Page előnézet" loading="lazy"
+                                    scrolling="no"></iframe>
+                            </div>
+                            <h3 data-i18n="projects.card3.title">Frontend Mentor Landing Page</h3>
+                            <p class="mb-3" data-i18n="projects.card3.desc">A Frontend Mentor landing page project where
+                                I
+                                will apply responsive design, modern CSS techniques, and JavaScript interactivity. This
+                                will be my next step in becoming more confident with frontend development.
                             </p>
-                            <a class="mini-github-btn"
-                                href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/angular-project"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                            <div class="mini-project-actions">
+                                <a class="mini-open-btn" href="/mini-projects/loopstudios-landing-page-main/index.html"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.open">Open Project</a>
+                                <a class="mini-github-btn"
+                                    href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/loopstudios-landing-page-main"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <!-- Project card:  Simple Landing Page -->
+                        <div class="card h-100 p-3 shadow-sm">
+                            <div class="mini-preview" aria-hidden="true">
+                                <iframe src="/mini-projects/simpleLandingPage/hiking.html"
+                                    title="Simple Landing Page előnézet" loading="lazy" scrolling="no"></iframe>
+                            </div>
+                            <h3 data-i18n="projects.card4.title">Simple Landing Page</h3>
+                            <p class="mb-3" data-i18n="projects.card4.desc">A simple landing page project where I will
+                                apply responsive design, modern CSS techniques, and JavaScript interactivity. This will
+                                be
+                                my next step in becoming more confident with frontend development.
+                            </p>
+                            <div class="mini-project-actions">
+                                <a class="mini-open-btn" href="/mini-projects/simpleLandingPage/hiking.html"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.open">Open Project</a>
+                                <a class="mini-github-btn"
+                                    href="https://github.com/szucsger/szucsger.github.io/tree/main/mini-projects/simpleLandingPage"
+                                    target="_blank" rel="noopener noreferrer" data-i18n="projects.repo">GitHub Repo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -465,9 +495,11 @@
                 <div class="col-6 col-md-4 col-lg-4">
                     <h4 class="footer-subtitle" data-i18n="footer.social">Social</h4>
                     <ul class="footer-links list-unstyled mb-0">
-                        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        <li><a href="mailto:hello@example.com" data-i18n="footer.email">Email</a></li>
+                        <li><a href="https://github.com/szucsger" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/gergely-sz%C3%BCcs-a58133380/" target="_blank"
+                                rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="#contact" data-i18n="footer.email">Email</a></li>
                     </ul>
                 </div>
             </div>
