@@ -25,16 +25,17 @@ const state = {
   isRunning: false,
   isPaused: false,
   catcherX: 0,
+  targetCatcherX: 0,
   ufoX: 0,
   ufoY: 0,
   ufoDirection: 1,
   ufoSpeed: 3,
   ufoBaseY: 140,
   ufoVDir: 1,
-  ufoVSpeed: 1.6, // függőleges sebesség
+  ufoVSpeed: 1.6, // vertical speed
   ufoMinY: 120,
   ufoMaxY: 180,
-  justCaught: false, // rövid zárolás a duplikált elkapások ellen
+  justCaught: false, // short lock to prevent duplicate catches
   gamewidth: 0,
   gameheight: 0,
   animationFrameID: null,
@@ -47,23 +48,23 @@ const state = {
 };
 
 /*
-  Fő játéklogika.
-  A state tárolja az állapotot, a render függvények a DOM-ot frissítik,
-  az updateUfo mozgatja az UFO-t, a checkCollision pedig az ütközést kezeli.
+  Core game logic.
+  The state stores the current values, the render functions update the DOM,
+  updateUfo moves the UFO, and checkCollision handles collisions.
 */
 
-// Kirajzolja az elkapó aktuális vízszintes pozícióját.
+// Renders the catcher's current horizontal position.
 function renderCatcher() {
   catcher.style.left = `${state.catcherX}px`;
 }
 
-// Kirajzolja az UFO aktuális pozícióját.
+// Renders the UFO's current position.
 function renderUfo() {
   ufo.style.left = `${state.ufoX}px`;
   ufo.style.top = `${state.ufoY}px`;
 }
 
-// Frissíti a HUD összes kijelzett értékét.
+// Updates all visible HUD values.
 function renderHud() {
   let accuracyValue =
     state.totalAttempts === 0
@@ -90,24 +91,25 @@ function renderHud() {
   }
 }
 
-// Visszaállítja a játékot az induló állapotba.
+// Resets the game to its initial state.
 function initGame() {
-  // Alapállapot és kezdő pozíciók beállítása.
+  // Set the base state and starting positions.
   let gameArea = game_area;
   state.gamewidth = gameArea.clientWidth;
   state.gameheight = gameArea.clientHeight;
   state.catcherX = (state.gamewidth - catcher.clientWidth) / 2;
+  state.targetCatcherX = state.catcherX;
   state.ufoX = (state.gamewidth - ufo.clientWidth) / 2;
-  state.ufoMinY = 20; // felső margó
+  state.ufoMinY = 20; // top margin
   state.ufoMaxY = Math.max(
     state.ufoMinY + 40,
     state.gameheight - ufo.clientHeight - 20,
-  ); // alsó margó
-  // Kezdő Y pozíció a tartomány közepén.
+  ); // bottom margin
+  // Start Y position in the middle of the range.
   state.ufoY = Math.round((state.ufoMinY + state.ufoMaxY) / 2);
   state.ufoVDir = Math.random() < 0.5 ? -1 : 1;
   state.ufoVSpeed = 0.9 + Math.random() * 0.6;
-  // A CSS lebegés helyett a JS mozgatja az UFO-t.
+  // JS moves the UFO instead of the CSS animation.
   if (ufo && ufo.style) ufo.style.animation = "none";
   state.score = 0;
   state.timeLeft = 60;
@@ -126,21 +128,32 @@ function initGame() {
   renderHud();
 }
 
-// Elmozdítja az elkapót a megadott irányba a pálya határain belül.
+// Moves the catcher in the given direction within the play area.
 function moveCatcher(direction) {
-  let speed = 18;
-  let newX = state.catcherX + direction * speed;
+  let speed = 20; // pixels per key press
+  let newX = state.targetCatcherX + direction * speed;
   let maxX = state.gamewidth - catcher.clientWidth;
   if (newX < 0) {
     newX = 0;
   } else if (newX > maxX) {
     newX = maxX;
   }
-  state.catcherX = newX;
+  state.targetCatcherX = newX;
   renderCatcher();
 }
 
-// Beköti a billentyűzetes irányítást.
+// updateCatcher position
+function updateCatcher() {
+  // Smoothly move the catcher towards the target position.
+  let smoothness = 0.2; // Adjust this value for more or less smoothing
+  state.catcherX += (state.targetCatcherX - state.catcherX) * smoothness;
+  if (Math.abs(state.targetCatcherX - state.catcherX) < 0.5) {
+    state.catcherX = state.targetCatcherX; // Snap to target if close enough
+  }
+  renderCatcher();
+}
+
+// Binds keyboard controls.
 function setupControls() {
   document.addEventListener("keydown", (event) => {
     if (state.isPaused) return;
@@ -155,11 +168,11 @@ function setupControls() {
   });
 }
 
-// Frissíti az UFO mozgását és a pályaszéli irányváltásokat.
+// Updates UFO movement and edge bounces.
 function updateUfo() {
-  // Az UFO vízszintes és függőleges mozgatása.
+  // Move the UFO horizontally and vertically.
   state.ufoX += state.ufoDirection * state.ufoSpeed;
-  // Irányváltás a széleknél.
+  // Reverse direction at the edges.
   if (state.ufoX <= 0) {
     state.ufoX = 0;
     state.ufoDirection *= -1;
@@ -176,7 +189,7 @@ function updateUfo() {
     state.ufoX = state.gamewidth - ufo.clientWidth;
     state.ufoDirection *= -1;
   }
-  // Pattogás a felső és alsó határ között.
+  // Bounce between the upper and lower bounds.
   state.ufoY += state.ufoVDir * state.ufoVSpeed;
   if (state.ufoY <= state.ufoMinY) {
     state.ufoY = state.ufoMinY;
@@ -191,11 +204,12 @@ function updateUfo() {
   renderUfo();
 }
 
-// Lefuttat egy játékkört, majd újraütemezi önmagát.
+// Runs one game loop tick and schedules the next one.
 function gameLoop() {
   state.ufoHitBottomThisFrame = false;
   state.caughtThisFrame = false;
   if (state.isPaused || !state.isRunning) return;
+  updateCatcher();
   updateUfo();
   checkCollision();
   if (
@@ -211,9 +225,9 @@ function gameLoop() {
   state.animationFrameID = requestAnimationFrame(gameLoop);
 }
 
-// Ellenőrzi, hogy az UFO és az elkapó összeér-e.
+// Checks whether the UFO and catcher overlap.
 function checkCollision() {
-  // Ütközésellenőrzés a tényleges DOM pozíciók alapján.
+  // Collision check based on the actual DOM positions.
   if (state.isPaused || !state.isRunning) return;
 
   const uRectRaw = ufo.getBoundingClientRect();
@@ -238,7 +252,7 @@ function checkCollision() {
     cRect.top < uRect.top + (uRect.bottom - uRect.top) &&
     cRect.top + (cRect.bottom - cRect.top) > uRect.top;
 
-  // Csak akkor engedünk új elkapást, ha az elemek már különváltak.
+  // Only allow a new catch once the elements have separated again.
   if (state.justCaught) {
     if (!overlap) state.justCaught = false;
     return;
@@ -246,13 +260,14 @@ function checkCollision() {
 
   if (!overlap) return;
 
-  // Sikeres elkapás kezelése.
+  // Handle a successful catch.
   state.justCaught = true;
   state.caughtThisFrame = true;
   state.score += 1;
   state.streak += 1;
   state.totalCatches += 1;
   state.totalAttempts += 1;
+  state.timeLeft = Math.min(state.timeLeft + 3, 99); // Add time for a successful catch, max 99s
   if (state.streak % 5 === 0) {
     state.wave += 1;
     state.streak = 0;
@@ -260,7 +275,7 @@ function checkCollision() {
   }
 
   renderHud();
-  // Pontszám animáció.
+  // Score animation.
   score_value.classList.remove("pop", "active");
   void score_value.offsetWidth;
   score_value.classList.add("pop", "active");
@@ -276,7 +291,7 @@ function checkCollision() {
     { once: true },
   );
 
-  // Elkapó animáció.
+  // Catcher animation.
   catcher.classList.remove("bounce", "active");
   void catcher.offsetWidth;
   catcher.classList.add("bounce", "active");
@@ -292,16 +307,14 @@ function checkCollision() {
     { once: true },
   );
 
-  // Lebegő pontérték megjelenítése.
+  // Show a floating score popup.
   try {
     const areaRect = game_area.getBoundingClientRect();
-    const fx = cRect.left + cRect.width / 2 - areaRect.left;
+    const fx = state.catcherX + catcher.clientWidth / 2;
     const fy = cRect.top - areaRect.top - 8;
     spawnFloatingScore(fx, fy, "+1");
-  } catch (e) {
-    /* silent */
-  }
-  // Az UFO pattanjon vissza az elkapóról.
+  } catch (e) {}
+  // Make the UFO bounce away from the catcher.
   const maxX = state.gamewidth - ufo.clientWidth;
   state.ufoVDir = -1;
   state.ufoVSpeed = 2 + Math.random() * 1.5;
@@ -313,7 +326,7 @@ function checkCollision() {
   );
 }
 
-// Új kezdőpozíciót és mozgási irányt ad az UFO-nak.
+// Gives the UFO a new start position and movement direction.
 function resetUfoPosition() {
   state.ufoX = Math.random() * (state.gamewidth - ufo.clientWidth);
 
@@ -331,7 +344,7 @@ function resetUfoPosition() {
   renderUfo();
 }
 
-// Leállítja a visszaszámláló időzítőt.
+// Stops the countdown timer.
 function stopTimer() {
   if (state.timerId) {
     clearInterval(state.timerId);
@@ -339,7 +352,7 @@ function stopTimer() {
   }
 }
 
-// Leállítja a requestAnimationFrame alapú játékkört.
+// Stops the requestAnimationFrame-based game loop.
 function stopGameLoop() {
   if (state.animationFrameID) {
     cancelAnimationFrame(state.animationFrameID);
@@ -347,7 +360,7 @@ function stopGameLoop() {
   }
 }
 
-// Elindítja a visszaszámlálót, ha még nem fut.
+// Starts the countdown timer if it is not already running.
 function startTimer() {
   if (state.timerId) return;
   state.timerId = setInterval(function () {
@@ -362,7 +375,7 @@ function startTimer() {
   }, 1000);
 }
 
-// Megjelenít egy lebegő pontszám animációt a megadott helyen.
+// Displays a floating score animation at the given position.
 function spawnFloatingScore(x, y, text = "+1") {
   let container = document.querySelector("#game-area");
   let el = document.createElement("div");
@@ -387,7 +400,7 @@ function spawnFloatingScore(x, y, text = "+1") {
   }, 900);
 }
 
-// Megjeleníti a játék vége réteget és menti a legjobb pontszámot.
+// Shows the game over overlay and saves the best score.
 function showGameOver() {
   stopGameLoop();
   state.isRunning = false;
@@ -396,7 +409,7 @@ function showGameOver() {
   start_button.disabled = true;
   pause_button.disabled = true;
   restart_button.disabled = false;
-  // Legjobb eredmény mentése.
+  // Save the best score.
   if (state.score > state.bestScore) {
     state.bestScore = state.score;
     localStorage.setItem("ufoCatcherBestScore", state.bestScore);
@@ -404,7 +417,7 @@ function showGameOver() {
   renderHud();
 }
 
-// Elrejti a játék vége réteget.
+// Hides the game over overlay.
 function hideGameOver() {
   game_over_overlay.style.display = "none";
   pause_button.disabled = false;
@@ -437,21 +450,21 @@ pause_button.addEventListener("click", function () {
 });
 
 restart_button.addEventListener("click", function () {
-  // allow repeated safe restarts
+  // Allow repeated safe restarts.
   hideGameOver();
   restart_button.disabled = true;
   stopTimer();
   stopGameLoop();
 
-  // reset gameplay values
+  // Reset gameplay values.
   state.ufoSpeed = 3;
   initGame();
 
-  // UI reset
+  // Reset the UI.
   pause_button.innerText = "Pause";
   start_button.disabled = false;
 
-  // immediate restart
+  // Restart immediately.
   state.isRunning = true;
   state.isPaused = false;
   startTimer();

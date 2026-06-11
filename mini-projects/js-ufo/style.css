@@ -242,7 +242,7 @@ select {
 
 .ufo {
   position: absolute;
-  /* Az UFO pozícióját a JavaScript állítja, ezért itt nincs fix top/left. */
+  /* The UFO's position is set by JavaScript, so there is no fixed top/left here. */
   width: 112px;
   height: 48px;
   border-radius: 50% 50% 46% 46%;
@@ -282,7 +282,7 @@ select {
 }
 
 .catcher {
-  /* Az elkapó függőleges helyét a CSS, a vízszinteset a JavaScript adja meg. */
+  /* The catcher's vertical position is set by CSS, horizontal position is controlled by JavaScript. */
   position: absolute;
   bottom: 28px;
   width: 140px;
@@ -506,9 +506,9 @@ select {
 }
 
 .floating-score {
-  position: absolute;
+  position: relative;
   opacity: 0;
-  transform: translateY(0);
+  transform: translateY(-50%);
 }
 
 .animate {

@@ -15,12 +15,16 @@ Az oldal egy modern, reszponzív landing page, amely a következő fő részekb�
 
 ### JavaScript UFO Catcher
 
-Egy egyszerű böngészős játék, amelyet DOM-manipuláció, animációk és játékmenet-logika gyakorlására készítettem.
+Egy böngészős mini játék, amelyet DOM-manipuláció, ütközéskezelés, requestAnimationFrame alapú játékciklus és animációk gyakorlására készítettem. A catcher simított mozgással követi a billentyűs vezérlést, a találatok pontot és időbónuszt adnak, a HUD pedig folyamatosan frissül.
 
 ### TypeScript Statistics Dashboard
 
-Egy TypeScript alapú dashboard, amely adatkezelést, statisztikákat, szűrést, rendezést, localStorage mentést és Chart.js diagramokat mutat be.
+Egy TypeScript alapú dashboard, amely tranzakciókezelést, statisztikai összesítést, szűrést, rendezést, localStorage mentést és Chart.js diagramokat mutat be.
 
-### Angular Practice Project
+### Frontend Mentor
 
-Jelenleg előkészített helyfoglaló egy későbbi Angular projekthez, amely a komponensalapú gondolkodást és a moduláris fejlesztést fogja támogatni.
+Frontend Mentor alapú gyakorló munkák gyűjteménye, különböző frontend megoldásokkal és layout próbákkal.
+
+### Simple Landing Page
+
+Reszponzív, Bootstrapre épülő hiking landing page, amely a layoutépítést, a vizuális hierarchiát és a mobilbarát felépítést gyakorolja.

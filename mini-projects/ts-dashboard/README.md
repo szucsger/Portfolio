@@ -1,6 +1,6 @@
 # Statistics Dashboard
 
-Ez egy TypeScript alapú mini dashboard, amely tranzakciókezelést, statisztikai összesítést és diagramos megjelenítést mutat be. A projektet kifejezetten azért építettem, hogy a típusalapú frontend fejlesztést, a state-kezelést és a vizuális adatmegjelenítést gyakoroljam egy jól áttekinthető, valósághoz közelebb álló felületen.
+Egy TypeScript alapú mini dashboard, amely tranzakciókezelést, statisztikai összesítést és diagramos megjelenítést mutat be. A projektet azért építettem, hogy a típusalapú frontend fejlesztést, a state-kezelést és a vizuális adatmegjelenítést gyakoroljam egy átlátható, valósághoz közelebb álló felületen.
 
 ## Áttekintés
 
@@ -29,10 +29,10 @@ A dashboard bevétel és kiadás típusú tranzakciókkal dolgozik. Az adatok al
 
 ## Projektstruktúra
 
-- `dashboard.html` - a dashboard felülete
-- `dashboard.ts` - a fő logika és adatkezelés
-- `dashboard.js` - a fordított JavaScript verzió
-- `dashboard.css` - egyedi megjelenés és chart méretezés
+- [dashboard.html](dashboard.html) - a dashboard felülete
+- [dashboard.ts](dashboard.ts) - a fő logika és adatkezelés
+- [dashboard.js](dashboard.js) - a fordított JavaScript verzió
+- [dashboard.css](dashboard.css) - egyedi megjelenés és chart méretezés
 
 ## Tanulási cél
 
@@ -47,8 +47,8 @@ A projekt során az alábbiakat gyakoroltam:
 
 ## Megnyitás
 
-A projekt közvetlenül megnyitható a `dashboard.html` fájlból.
+A projekt közvetlenül megnyitható a [dashboard.html](dashboard.html) fájlból.
 
 ## Rövid megjegyzés
 
-Ez a mini projekt szintén tanulási célú, ezért a működő adatkezelés és az átlátható TypeScript szerkezet volt a fő fókusz.
+Ez a mini projekt tanulási célú, ezért a működő adatkezelés és az átlátható TypeScript szerkezet volt a fő fókusz.
