@@ -436,15 +436,6 @@ header ul a:hover {
 }
 /* Hero responsive */
 @media (max-width: 767.98px) {
-  .main-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 12px 16px;
-  }
-
   .header-hero {
     text-align: center;
     width: 100%;
@@ -452,7 +443,6 @@ header ul a:hover {
 
   .hamburger-menu {
     display: flex;
-    margin-left: auto;
   }
 
   .header-right {
