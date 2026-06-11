@@ -36,10 +36,15 @@
 </head>
 
 <body>
-    <!-- Sticky header with primary navigation, theme toggle, and language switch -->
-    <header class="py-3 border-bottom sticky-top">
+    <!-- Sticky header with primary navigation, theme switch button, and language switch button -->
+    <header class="py-3 border-bottom sticky-top main-header">
         <nav class="container header-nav">
-            <a href="#hero" data-i18n="brand">Frontend Dev</a>
+            <a href="#hero" class="header-hero" data-i18n="brand">Frontend Dev</a>
+            <button type="button" class="hamburger-menu" id="hamburger-btn" aria-label="Menu opening button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="header-right">
                 <ul class="d-flex list-unstyled mb-0">
                     <li class="ms-3 "><a href="#about" class="navElements" data-i18n="nav.about">About</a></li>
@@ -50,23 +55,9 @@
                     <li class="ms-3 "><a href="#contact" class="navElements" data-i18n="nav.contact">Contact</a></li>
                 </ul>
                 <div class="header-actions">
-                    <label class="lang-switch" for="lang-toggle" aria-label="Toggle language">
-                        <span class="lang-switch__label lang-switch__label--en">EN</span>
-                        <input type="checkbox" id="lang-toggle" class="lang-switch__input" />
-                        <span class="lang-switch__track">
-                            <span class="lang-switch__thumb"></span>
-                        </span>
-                        <span class="lang-switch__label lang-switch__label--hu">HU</span>
-                    </label>
-                    <label class="theme-switch" for="theme-toggle">
-                        <span class="theme-switch__label theme-switch__label--light">Light</span>
-                        <input type="checkbox" id="theme-toggle" class="theme-switch__input" />
-                        <span class="theme-switch__track">
-                            <span class="theme-switch__thumb"></span>
-                        </span>
-                        <span class="theme-switch__label theme-switch__label--dark">Dark</span>
-                    </label>
-
+                    <button type="button" id="theme-toggle-btn" class="theme-btn"
+                        aria-label="Toggle theme">Dark</button>
+                    <button type="button" id="lang-switch-btn" class="lang-btn" aria-label="Toggle language">HU</button>
                 </div>
             </div>
         </nav>

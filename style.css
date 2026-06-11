@@ -120,6 +120,27 @@ header {
   backdrop-filter: blur(14px);
 }
 
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  background-color: var(--text);
+  height: 3px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 .header-nav {
   display: flex;
   align-items: center;
@@ -186,94 +207,28 @@ header ul a:hover {
   color: var(--text);
 }
 
-#theme-toggle,
-#lang-toggle {
+.lang-btn,
+.theme-btn {
   border-radius: 999px;
-  white-space: nowrap;
-}
-
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.theme-switch__input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.theme-switch__track {
-  position: relative;
-  width: 56px;
-  height: 30px;
-  border-radius: 999px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-}
-
-.theme-switch__thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--btn-primary-bg);
-  transition: transform 0.2s ease;
-}
-
-.theme-switch__input:checked + .theme-switch__track .theme-switch__thumb {
-  transform: translateX(26px);
-}
-
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.lang-switch__label {
-  color: var(--muted);
-  font-size: 0.85rem;
+  padding: 6px 12px;
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text);
+  border: 1px solid var(--btn-ghost-border);
   font-weight: 600;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
 }
 
-.lang-switch__input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.lang-switch__track {
-  position: relative;
-  width: 56px;
-  height: 30px;
-  border-radius: 999px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
-.lang-switch__thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
+.lang-btn:hover,
+.theme-btn:hover {
   background: var(--btn-primary-bg);
-  transition: transform 0.2s ease;
+  color: var(--btn-primary-text);
+  border-color: var(--btn-primary-border);
+  transform: translateY(-3px);
 }
 
-.lang-switch__input:checked + .lang-switch__track .lang-switch__thumb {
-  transform: translateX(26px);
-}
 .text-secondary {
   color: var(--muted) !important;
 }
@@ -481,6 +436,78 @@ header ul a:hover {
 }
 /* Hero responsive */
 @media (max-width: 767.98px) {
+  .main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .header-hero {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .header-right {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--surface);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+    gap: 30px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .header-right ul {
+    flex-direction: column !important;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header ul li {
+    margin-left: 0 !important;
+  }
+
+  .header-right.nav-active {
+    right: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(5px, 6px);
+  }
+
+  .hamburger-menu.toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(5px, -6px);
+  }
+
+  .header-actions {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
   .hero-actions .btn {
     width: 100%;
   }

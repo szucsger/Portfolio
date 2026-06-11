@@ -1,7 +1,7 @@
 //Change theme based on user preference and toggle state
 
 const root = document.documentElement;
-const themeToggleCheckbox = document.getElementById("theme-toggle");
+const themeToggleButton = document.getElementById("theme-toggle-btn");
 const storageKey = "portfoliotheme";
 
 function getInitialTheme() {
@@ -13,7 +13,7 @@ function getInitialTheme() {
 }
 
 function syncToggle(theme) {
-  themeToggleCheckbox.checked = theme === "dark";
+  themeToggleButton.textContent = theme === "dark" ? "Light" : "Dark";
 }
 
 function applyTheme(theme) {
@@ -25,13 +25,14 @@ function applyTheme(theme) {
 const initialTheme = getInitialTheme();
 applyTheme(initialTheme);
 
-themeToggleCheckbox.addEventListener("change", () => {
-  const newTheme = themeToggleCheckbox.checked ? "dark" : "light";
+themeToggleButton.addEventListener("click", () => {
+  const newTheme =
+    root.getAttribute("data-theme") === "dark" ? "light" : "dark";
   applyTheme(newTheme);
 });
 
 //Change language based on user preference and toggle state
-const langToggleCheckbox = document.getElementById("lang-toggle");
+const langToggleButton = document.getElementById("lang-switch-btn");
 const langStorageKey = "portfoliolanguage";
 
 const translations = {
@@ -245,7 +246,7 @@ const translations = {
   },
   "contact.title": {
     en: "Let's Connect",
-    hu: "Kapcsolódjunk",
+    hu: "Lépjünk kapcsolatba",
   },
   "contact.intro": {
     en: "If you'd like to collaborate, have feedback, or want to discuss a project idea, feel free to reach out. I'm always open to learning opportunities and new challenges.",
@@ -370,7 +371,7 @@ function getInitialLanguage() {
 }
 
 function syncLangToggle(lang) {
-  langToggleCheckbox.checked = lang === "hu";
+  langToggleButton.textContent = lang === "hu" ? "EN" : "HU";
 }
 
 function applyTranslations(lang) {
@@ -403,7 +404,25 @@ function applyLanguage(lang) {
 const initialLanguage = getInitialLanguage();
 applyLanguage(initialLanguage);
 
-langToggleCheckbox.addEventListener("change", () => {
-  const newLanguage = langToggleCheckbox.checked ? "hu" : "en";
+langToggleButton.addEventListener("click", () => {
+  const newLanguage = root.getAttribute("lang") === "hu" ? "en" : "hu";
   applyLanguage(newLanguage);
+});
+
+// Mobile hamburger menu toggle
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const headerMenu = document.querySelector(".header-right");
+const navLinks = document.querySelectorAll(".navElements");
+
+// Handle hamburger menu toggle
+hamburgerBtn.addEventListener("click", () => {
+  headerMenu.classList.toggle("nav-active");
+  hamburgerBtn.classList.toggle("toggle");
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    headerMenu.classList.remove("nav-active");
+    hamburgerBtn.classList.remove("toggle");
+  });
 });
