@@ -68,6 +68,10 @@ const translations = {
     en: "Contact Me",
     hu: "Lépj kapcsolatba",
   },
+  "hero.ctaResume": {
+    en: "Download Resume",
+    hu: "Önéletrajz letöltése",
+  },
   "hero.stat1.value": {
     en: "Junior",
     hu: "Junior",

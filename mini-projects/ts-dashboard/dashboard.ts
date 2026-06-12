@@ -544,6 +544,7 @@ function formatCurrency(amount: number): string {
   }).format(amount);
 }
 
+// Function to format date for display
 function formatDisplayDate(rawDate: string): string {
   let parsedDate: Date = new Date(rawDate);
   if (Number.isNaN(parsedDate.getTime())) return rawDate;
@@ -555,6 +556,7 @@ function formatDisplayDate(rawDate: string): string {
   });
 }
 
+// Function to render transactions list based on current filter and sort
 function renderTransactions(): void {
   transactionsList.innerHTML = "";
   let visibleTransactions: Transaction[] = getVisibleTransactions();
@@ -635,6 +637,8 @@ function removeTransaction(id: number): void {
     saveTransactions(transactions);
   }
 }
+
+// Function to get next transaction ID
 function getNextId(): number {
   if (transactions.length === 0) return 1;
   return transactions[transactions.length - 1]!.id + 1;
