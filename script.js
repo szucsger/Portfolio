@@ -398,11 +398,20 @@ function applyTranslations(lang) {
   });
 }
 
+// Download resume button functionality
+const downloadResumeBtn = document.getElementById("download-resume");
+function ChangeCVLink(lang = root.getAttribute("lang")) {
+  const resumeLink =
+    lang === "hu" ? "/CV/Szucs_Gergely_CV.pdf" : "/CV/Gergely_Szucs_CV.pdf";
+  downloadResumeBtn.setAttribute("href", resumeLink);
+}
+
 function applyLanguage(lang) {
   root.setAttribute("lang", lang);
   localStorage.setItem(langStorageKey, lang);
   syncLangToggle(lang);
   applyTranslations(lang);
+  ChangeCVLink(lang);
 }
 
 const initialLanguage = getInitialLanguage();

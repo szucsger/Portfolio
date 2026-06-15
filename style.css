@@ -6,19 +6,20 @@
   padding: 0;
 }
 
+/* Theme variables for the light default and dark mode override */
 :root {
   --bg: #f6f7fb;
   --surface: #ffffff;
-  --surface-2: #f8fafc; /* emelt felület */
+  --surface-2: #f8fafc;
   --header-bg: rgba(246, 247, 251, 0.88);
   --text: #1f2530;
-  --text-strong: #10131a; /* erős cím/szám */
+  --text-strong: #10131a;
   --muted: #6b7280;
   --accent: #2fed58;
   --accent-2: #5cd2f6;
   --border: #e5e7eb;
   --ring: rgba(59, 130, 246, 0.15);
-  --chip-border: #e5e7eb; /* chip/kapszula kontúr */
+  --chip-border: #e5e7eb; 
 
   --btn-primary-bg: #111827;
   --btn-primary-text: #ffffff;
@@ -36,6 +37,7 @@
   --radius: 16px;
 }
 
+/* Dark mode variable overrides */
 :root[data-theme="dark"] {
   --bg: #0f172a;
   --surface: #111827;
@@ -77,6 +79,7 @@
   border-color: var(--btn-primary-border);
 }
 
+/* Base document behavior */
 html {
   scroll-behavior: smooth;
   color-scheme: light;
@@ -94,6 +97,7 @@ body {
   font-size: 16px;
 }
 
+/* Global media defaults */
 img {
   max-width: 100%;
   display: block;
@@ -103,7 +107,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* Layout */
+/* Section spacing and heading scale */
 section {
   padding: 56px 0;
 }
@@ -113,7 +117,7 @@ section h2 {
   margin-bottom: 12px;
 }
 
-/* Header */
+/* Sticky header, navigation, and controls */
 header {
   background: var(--header-bg);
   border-color: var(--border) !important;
@@ -150,8 +154,11 @@ header {
 }
 
 .navElements {
-  text-decoration: none;
   position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 }
 
 .navElements::after {
@@ -165,6 +172,10 @@ header {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
+}
+
+.navElements:hover {
+  transform: translateY(-3px);
 }
 
 .navElements:hover::after {
@@ -245,7 +256,7 @@ header ul a:hover {
   }
 }
 
-/* Hero */
+/* Hero section layout and visuals */
 #hero {
   position: relative;
   overflow: hidden;
@@ -434,7 +445,7 @@ header ul a:hover {
     transform: translateY(-12px);
   }
 }
-/* Hero responsive */
+/* Hero and header responsive behavior */
 @media (max-width: 767.98px) {
   .header-hero {
     text-align: center;
@@ -542,7 +553,7 @@ header ul a:hover {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
 }
 
-/* About */
+/* About section */
 #about .card h3,
 #mini-projects .card h3,
 #tech-stack .tech-card h3 {
@@ -641,7 +652,7 @@ header ul a:hover {
 .accent-green {
   color: #22c55e;
 }
-/* Tech stack */
+/* Tech stack section */
 #tech-stack .tech-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -804,7 +815,7 @@ header ul a:hover {
   }
 }
 
-/* Mini projects */
+/* Mini projects section */
 #mini-projects h2,
 #mini-projects .mini-intro {
   text-align: center;
@@ -915,7 +926,7 @@ header ul a:hover {
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
 }
 
-/* Contact */
+/* Contact section */
 #contact form {
   padding: 24px;
   background: var(--surface);
@@ -1098,7 +1109,7 @@ header ul a:hover {
   }
 }
 
-/* Final CTA */
+/* Closing CTA banner */
 .final-cta {
   background: linear-gradient(100deg, #2fed58 0%, #5cd2f6 100%, #8b5cf6 100%);
   border-radius: 22px;
