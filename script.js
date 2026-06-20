@@ -308,6 +308,18 @@ const translations = {
     en: "Send",
     hu: "Küldés",
   },
+  "contact.popup.title": {
+    en: "Message sent",
+    hu: "Üzenet elküldve",
+  },
+  "contact.popup.desc": {
+    en: "Thanks! Your message was sent successfully. I'll get back to you soon.",
+    hu: "Köszönöm! Az üzeneted sikeresen elküldve. Hamarosan válaszolok.",
+  },
+  "contact.popup.close": {
+    en: "Close",
+    hu: "Bezárás",
+  },
   "cta.title": {
     en: "Ready for the next project?",
     hu: "Készen állsz a következő projektre?",
@@ -420,6 +432,92 @@ applyLanguage(initialLanguage);
 langToggleButton.addEventListener("click", () => {
   const newLanguage = root.getAttribute("lang") === "hu" ? "en" : "hu";
   applyLanguage(newLanguage);
+});
+
+// Form message submission handling
+const contactForm = document.querySelector("#contact-form form");
+const successPopup = document.getElementById("success-popup");
+const successPopupCloseBtn = document.getElementById("success-popup-close");
+
+function openSuccessPopup() {
+  if (!successPopup || !successPopupCloseBtn) {
+    return;
+  }
+
+  successPopup.classList.add("is-visible");
+  successPopup.setAttribute("aria-hidden", "false");
+  successPopupCloseBtn.focus();
+}
+
+function closeSuccessPopup() {
+  if (!successPopup) {
+    return;
+  }
+
+  successPopup.classList.remove("is-visible");
+  successPopup.setAttribute("aria-hidden", "true");
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.textContent : "";
+    const isHungarian = root.getAttribute("lang") === "hu";
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = isHungarian ? "Küldés..." : "Sending...";
+    }
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree request failed");
+      }
+
+      contactForm.reset();
+      openSuccessPopup();
+    } catch (error) {
+      window.alert(
+        isHungarian
+          ? "Nem sikerült elküldeni az üzenetet. Próbáld meg újra később."
+          : "The message could not be sent. Please try again later.",
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    }
+  });
+}
+
+if (successPopupCloseBtn) {
+  successPopupCloseBtn.addEventListener("click", closeSuccessPopup);
+}
+
+if (successPopup) {
+  successPopup.addEventListener("click", (event) => {
+    if (event.target === successPopup) {
+      closeSuccessPopup();
+    }
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    successPopup?.classList.contains("is-visible")
+  ) {
+    closeSuccessPopup();
+  }
 });
 
 // Mobile hamburger menu toggle

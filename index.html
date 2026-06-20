@@ -85,7 +85,8 @@
                         <a href="#mini-projects" class="btn btn-dark" data-i18n="hero.ctaProjects">View Projects</a>
                         <a href="#contact" class="btn btn-outline-dark" data-i18n="hero.ctaContact">Contact Me</a>
                         <a href="/CV/Szucs_Gergely_CV.pdf" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline-dark" data-i18n="hero.ctaResume" id="download-resume">Download Resume</a>
+                            class="btn btn-outline-dark" data-i18n="hero.ctaResume" id="download-resume">Download
+                            Resume</a>
                     </div>
 
                     <!-- Compact stat highlights for role, start year, and project count -->
@@ -506,6 +507,17 @@
             </div>
         </div>
     </footer>
+
+    <div class="success-popup" id="success-popup" aria-hidden="true">
+        <div class="success-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="success-popup-title">
+            <p class="success-popup__eyebrow">Formspree</p>
+            <h2 id="success-popup-title" data-i18n="contact.popup.title">Message sent</h2>
+            <p class="success-popup__text" data-i18n="contact.popup.desc">Thanks! Your message was sent successfully.
+                I'll get back to you soon.</p>
+            <button type="button" class="btn btn-dark success-popup__close" id="success-popup-close"
+                data-i18n="contact.popup.close">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
