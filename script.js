@@ -184,6 +184,30 @@ const translations = {
     en: "Framework",
     hu: "Keret",
   },
+  "tech.card.php.title": {
+    en: "PHP",
+    hu: "PHP",
+  },
+  "tech.card.php.tag": {
+    en: "Backend",
+    hu: "Backend",
+  },
+  "tech.card.mysql.title": {
+    en: "MySQL",
+    hu: "MySQL",
+  },
+  "tech.card.mysql.tag": {
+    en: "Database",
+    hu: "Adatbázis",
+  },
+  "tech.card.csharp.title": {
+    en: "C#",
+    hu: "C#",
+  },
+  "tech.card.csharp.tag": {
+    en: "Language",
+    hu: "Nyelv",
+  },
   "tech.card.github.title": {
     en: "GitHub",
     hu: "GitHub",
@@ -247,6 +271,52 @@ const translations = {
   "projects.repo": {
     en: "GitHub Repo",
     hu: "GitHub tárhely",
+  },
+  "next.title": {
+    en: "What next?",
+    hu: "Mi jön ezután?",
+  },
+
+  "next.intro": {
+    en: "I am currently focusing on software development, gaining a clear understanding of how modern applications are created. Alongside my studies, I am also learning the basics of automated testing on my own to broaden my technical perspective.",
+    hu: "Jelenleg szoftverfejlesztő és tesztelő képzésen veszek részt, ahol jobban belelátok abba, hogyan áll össze egy alkalmazás. Emellett önállóan is tanulom az automata tesztelés alapjait, hogy még teljesebb képet kapjak a szakmáról.",
+  },
+
+  "next.card1.label": {
+    en: "Studies",
+    hu: "Képzés",
+  },
+  "next.card1.title": {
+    en: "Software development studies",
+    hu: "Szoftverfejlesztői képzés",
+  },
+  "next.card1.desc": {
+    en: "I am learning the foundations of software development, gaining insight into how applications are designed, built, and maintained.",
+    hu: "A fejlesztés alapjait tanulom, és közben azt is látom, hogyan tervezik, építik és tartják karban az alkalmazásokat.",
+  },
+  "next.card2.label": {
+    en: "Technologies",
+    hu: "Technológiák",
+  },
+  "next.card2.title": {
+    en: "Programming foundations",
+    hu: "C# és PHP",
+  },
+  "next.card2.desc": {
+    en: "I am strengthening my knowledge in core development concepts and languages to build a stable base for future specialization.",
+    hu: "C#-ot és PHP-t tanulok, mert ezekkel jobb rálátást kapok arra, hogyan működnek a különböző fejlesztési feladatok.",
+  },
+  "next.card3.label": {
+    en: "Testing",
+    hu: "Tesztelés",
+  },
+  "next.card3.title": {
+    en: "Automated testing basics",
+    hu: "Automata tesztelés alapjai",
+  },
+  "next.card3.desc": {
+    en: "I am also studying the fundamentals of automated testing on my own, which helps me understand how software quality is ensured in real projects.",
+    hu: "Az adatbázis-kezelés mellett az automata tesztelés alapjaival is foglalkozom, hogy jobban értsem a szoftverek minőségbiztosítását.",
   },
   "contact.title": {
     en: "Let's Connect",

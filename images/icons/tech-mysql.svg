@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">MySQL icon</title>
+  <path d="M18 19.5C18 14.8 24.3 11 32 11C39.7 11 46 14.8 46 19.5C46 24.2 39.7 28 32 28C24.3 28 18 24.2 18 19.5Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M18 19.5V41.5C18 46.2 24.3 50 32 50C39.7 50 46 46.2 46 41.5V19.5" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M18 30C18 34.7 24.3 38.5 32 38.5C39.7 38.5 46 34.7 46 30" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M18 40C18 44.7 24.3 48.5 32 48.5C39.7 48.5 46 44.7 46 40" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M36 47.5C39 44.5 42.7 43 47 43C50.5 43 53.2 44.2 56 46.5" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

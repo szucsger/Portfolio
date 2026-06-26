@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">PHP icon</title>
+  <path d="M32 11L46.5 17V27.5C46.5 38.5 40.5 46.5 32 52C23.5 46.5 17.5 38.5 17.5 27.5V17L32 11Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M25 23H31.2C34.5 23 37 24.8 37 28C37 31.2 34.5 33 31.2 33H25V23Z" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M41.5 23L38.5 41" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M36 41L38.6 23" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M39.2 31H45.2" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M40.2 26.5H46.2" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M24.8 31H30.8" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
