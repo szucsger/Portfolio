@@ -1,12 +1,1 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Continuous Improvement icon</title>
-  <desc id="desc">Circular arrows around upward trend bars</desc>
-  <rect x="1" y="1" width="62" height="62" rx="16" stroke="#2F80ED" stroke-width="2"/>
-  <path d="M17 36C17 28.3 23.3 22 31 22H37" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M36 18L42 22L36 26" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M47 28C47 35.7 40.7 42 33 42H27" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M28 46L22 42L28 38" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M24 36V31" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M32 36V27" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M40 36V24" stroke="#2F80ED" stroke-width="2.4" stroke-linecap="round"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;"><path d="M63,17l0,30c0,8.831 -7.169,16 -16,16l-30,0c-8.831,0 -16,-7.169 -16,-16l0,-30c0,-8.831 7.169,-16 16,-16l30,0c8.831,0 16,7.169 16,16Z" style="fill:none;stroke:#2f80ed;stroke-width:2px;"/><path d="M21.203,31.048c-0,-6.097 6.802,-11.086 15.116,-11.086l6.478,0" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.27px;stroke-linecap:round;"/><path d="M39.471,16.097l6,4l-6,4" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.4px;stroke-linecap:round;stroke-linejoin:round;"/><path d="M44.063,30.097c0,6.097 -6.802,11.086 -15.116,11.086l-6.478,0" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.27px;stroke-linecap:round;"/><path d="M25.517,44.683l-4.938,-3.587l5.06,-3.412" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.05px;stroke-linecap:round;stroke-linejoin:round;"/><path d="M27.974,36.097l0,-5" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.4px;stroke-linecap:round;"/><path d="M32,36l0,-9" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.4px;stroke-linecap:round;"/><path d="M36.309,36.097l0,-12" style="fill:none;fill-rule:nonzero;stroke:#2f80ed;stroke-width:2.4px;stroke-linecap:round;"/></svg>

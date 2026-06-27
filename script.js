@@ -93,12 +93,12 @@ const translations = {
     hu: "Aktív státusz",
   },
   "about.title": {
-    en: "Growing Through Practice and Passion for Frontend Development",
-    hu: "Fejlődés gyakorlással és frontend iránti szenvedéllyel",
+    en: "Growing as a Frontend Developer While Expanding Toward Full‑Stack Skills",
+    hu: "Fejlődés frontend fejlesztőként, fullstack irányba bővülő tudással",
   },
   "about.intro": {
-    en: "I started my frontend journey with a strong desire to understand how modern web interfaces are built. Since completing my training, I've been actively practicing by creating small, focused projects that help me strengthen my problem-solving skills and deepen my understanding of UI/UX principles.",
-    hu: "Frontend utamat erős kíváncsisággal kezdtem, hogy megértsem, hogyan épülnek fel a modern webes felületek. A képzésem befejezése óta aktívan gyakorlok kisebb, célzott projektekkel, amelyek fejlesztik a problémamegoldó képességemet és mélyítik a UI/UX szemléletemet.",
+    en: "I started my journey in frontend development because I wanted to understand how modern web interfaces work in real projects. Since completing my training, I’ve been actively expanding my skills: I’m now learning full‑stack development and building small, practical applications where I can strengthen both my frontend knowledge and the backend fundamentals like server‑side logic and data handling. These hands‑on projects help me understand the full web development process and create modern, well‑structured applications with growing confidence.",
+    hu: "Frontend fejlesztőként indultam, mert érdekelt, hogyan működnek a modern webes felületek valódi projektekben. A képzésem óta folyamatosan bővítem a tudásomat: jelenleg fullstack fejlesztést tanulok, és olyan kisebb, gyakorlati alkalmazásokat építek, ahol a frontend mellett a backend alapjait, a szerveroldali logikát és az adatkezelést is fejlesztem. Ezek a projektek segítenek jobban átlátni a webfejlesztés teljes folyamatát, és egyre magabiztosabban készíteni modern, jól felépített alkalmazásokat.",
   },
   "about.card1.title": {
     en: "Learning-First Approach",

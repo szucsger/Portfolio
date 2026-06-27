@@ -1,7 +1,7 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Location icon</title>
   <desc id="desc">Location pin inside a rounded square frame</desc>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="16" stroke="#C855F6" stroke-width="3"/>
-  <path d="M32 19C26.7 19 22.5 23.2 22.5 28.5C22.5 35.4 30 42.8 31.1 43.9C31.6 44.4 32.4 44.4 32.9 43.9C34 42.8 41.5 35.4 41.5 28.5C41.5 23.2 37.3 19 32 19Z" stroke="#2B2F36" stroke-width="2.6" stroke-linejoin="round"/>
-  <circle cx="32" cy="28.5" r="3.1" stroke="#2B2F36" stroke-width="2.4"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="16" stroke="#c855f6" stroke-width="3"/>
+  <path d="M32 19C26.7 19 22.5 23.2 22.5 28.5C22.5 35.4 30 42.8 31.1 43.9C31.6 44.4 32.4 44.4 32.9 43.9C34 42.8 41.5 35.4 41.5 28.5C41.5 23.2 37.3 19 32 19Z" stroke="#c855f6" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="32" cy="28.5" r="3.1" stroke="#c855f6" stroke-width="2.4"/>
 </svg>

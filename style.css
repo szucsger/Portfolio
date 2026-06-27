@@ -79,6 +79,26 @@
   border-color: var(--btn-primary-border);
 }
 
+:root[data-theme="dark"] #mini-projects .mini-open-btn {
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text);
+  border-color: var(--btn-ghost-border);
+}
+
+:root[data-theme="dark"] #mini-projects .mini-open-btn::before {
+  background: var(--btn-ghost-text);
+}
+
+:root[data-theme="dark"] #mini-projects .mini-open-btn:hover {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--btn-ghost-text);
+}
+
+:root[data-theme="dark"] #mini-projects .mini-open-btn:hover::before {
+  background: var(--surface);
+}
+
 /* Base document behavior */
 html {
   scroll-behavior: smooth;
@@ -719,7 +739,7 @@ header ul a:hover {
 }
 
 #tech-stack .tech-card.tech-php {
-  color: #777bb4;
+  color: #2563eb;
 }
 
 #tech-stack .tech-card.tech-mysql {
@@ -808,7 +828,7 @@ header ul a:hover {
 }
 
 #tech-stack .icon-php {
-  background: linear-gradient(135deg, #777bb4, #4f5b93);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
 }
 
 #tech-stack .icon-mysql {
@@ -1015,15 +1035,15 @@ header ul a:hover {
 }
 
 #what-next .next-card-focus {
-  color: #2f80ed;
+  color: #2fed58;
 }
 
 #what-next .next-card-code {
-  color: #c855f6;
+  color: #45dfa7;
 }
 
 #what-next .next-card-data {
-  color: #22c55e;
+  color: #5cd2f6;
 }
 
 /* Contact section */
