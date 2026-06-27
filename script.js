@@ -66,7 +66,7 @@ const translations = {
   },
   "hero.ctaContact": {
     en: "Contact Me",
-    hu: "Lépj kapcsolatba",
+    hu: "Írj nekem",
   },
   "hero.ctaResume": {
     en: "Download Resume",
@@ -133,16 +133,16 @@ const translations = {
     hu: "A frontend fejlesztéshez komponensalapú szemlélettel közelítek: a felületeket újrahasználható, moduláris elemekre bontom. Ez javítja a karbantarthatóságot, a skálázhatóságot és a csapatmunkát.",
   },
   "about.closing": {
-    en: "My workflow is centered around clarity, usability, and continuous improvement. I believe that consistent practice and real-world experimentation are the keys to becoming a strong frontend developer.",
-    hu: "A munkafolyamatom középpontjában a letisztultság, a használhatóság és a folyamatos fejlődés áll. Hiszem, hogy a következetes gyakorlás és a valós kísérletezés vezet egy erős frontend fejlesztővé.",
+    en: "My workflow is centered around clarity, usability, and continuous improvement. I believe that consistent practice and real-world experimentation are the keys to becoming a strong developer.",
+    hu: "A munkafolyamatom középpontjában a letisztultság, a használhatóság és a folyamatos fejlődés áll. Hiszem, hogy a következetes gyakorlás és a valós kísérletezés vezet egy erős fejlesztővé.",
   },
   "tech.title": {
     en: "Tech Stack",
     hu: "Technológiai stack",
   },
   "tech.intro": {
-    en: "Core technologies I use in my frontend learning journey.",
-    hu: "Azok a fő technológiák, amelyeket a frontend tanulási utamon használok.",
+    en: "The core technologies I rely on throughout my developer journey.",
+    hu: "Azok a fő technológiák, amelyekre a fejlesztői utamon támaszkodom.",
   },
   "tech.card.html.title": {
     en: "HTML",
@@ -303,8 +303,8 @@ const translations = {
     hu: "C# és PHP",
   },
   "next.card2.desc": {
-    en: "I am strengthening my knowledge in core development concepts and languages to build a stable base for future specialization.",
-    hu: "C#-ot és PHP-t tanulok, mert ezekkel jobb rálátást kapok arra, hogyan működnek a különböző fejlesztési feladatok.",
+    en: "I am learning the fundamentals of backend development to better understand how different parts of an application work together.",
+    hu: "A backend fejlesztés alapjait tanulom, hogy jobban átlássam, hogyan működnek együtt egy alkalmazás különböző részei.",
   },
   "next.card3.label": {
     en: "Testing",
@@ -316,7 +316,7 @@ const translations = {
   },
   "next.card3.desc": {
     en: "I am also studying the fundamentals of automated testing on my own, which helps me understand how software quality is ensured in real projects.",
-    hu: "Az adatbázis-kezelés mellett az automata tesztelés alapjaival is foglalkozom, hogy jobban értsem a szoftverek minőségbiztosítását.",
+    hu: "Az automata tesztelés alapjaival is foglalkozom önállóan, hogy jobban értsem a szoftverek minőségbiztosítását a valós projektekben.",
   },
   "contact.title": {
     en: "Let's Connect",
@@ -395,8 +395,8 @@ const translations = {
     hu: "Készen állsz a következő projektre?",
   },
   "cta.desc": {
-    en: "Let's build something clean, modern and useful together. I'm open to junior frontend opportunities.",
-    hu: "Építsünk együtt valami letisztultat, modernet és hasznosat. Nyitott vagyok junior frontend lehetőségekre.",
+    en: "I'm open to junior frontend roles and happy to work on clean, modern projects.",
+    hu: "Nyitott vagyok junior frontend lehetőségekre, és szívesen dolgozom letisztult, modern projekteken.",
   },
   "cta.button": {
     en: "Get in touch",
