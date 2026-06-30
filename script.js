@@ -278,8 +278,8 @@ const translations = {
   },
 
   "next.intro": {
-    en: "I am currently focusing on software development, gaining a clear understanding of how modern applications are created. Alongside my studies, I am also learning the basics of automated testing on my own to broaden my technical perspective.",
-    hu: "Jelenleg szoftverfejlesztő és tesztelő képzésen veszek részt, ahol jobban belelátok abba, hogyan áll össze egy alkalmazás. Emellett önállóan is tanulom az automata tesztelés alapjait, hogy még teljesebb képet kapjak a szakmáról.",
+    en: "I am currently focusing on software development, gaining a clear understanding of how modern applications are created. Alongside my studies, I am deepening my knowledge of C#, PHP, and database management.",
+    hu: "Jelenleg szoftverfejlesztői képzésen veszek részt, ahol jobban belelátok abba, hogyan áll össze egy alkalmazás. Emellett mélyítem a C#, PHP és adatbázis-kezelési ismereteimet.",
   },
 
   "next.card1.label": {
@@ -291,8 +291,8 @@ const translations = {
     hu: "Szoftverfejlesztői képzés",
   },
   "next.card1.desc": {
-    en: "I am learning the foundations of software development, gaining insight into how applications are designed, built, and maintained.",
-    hu: "A fejlesztés alapjait tanulom, és közben azt is látom, hogyan tervezik, építik és tartják karban az alkalmazásokat.",
+    en: "I am learning the foundations of software development and gaining insight into how applications are designed, built, and improved.",
+    hu: "A fejlesztés alapjait tanulom, és közben azt is látom, hogyan tervezik, építik és fejlesztik tovább az alkalmazásokat.",
   },
   "next.card2.label": {
     en: "Technologies",
@@ -307,16 +307,16 @@ const translations = {
     hu: "A backend fejlesztés alapjait tanulom, hogy jobban átlássam, hogyan működnek együtt egy alkalmazás különböző részei.",
   },
   "next.card3.label": {
-    en: "Testing",
-    hu: "Tesztelés",
+    en: "Practice",
+    hu: "Gyakorlat",
   },
   "next.card3.title": {
-    en: "Automated testing basics",
-    hu: "Automata tesztelés alapjai",
+    en: "Project workflow",
+    hu: "Fejlesztési munkafolyamat",
   },
   "next.card3.desc": {
-    en: "I am also studying the fundamentals of automated testing on my own, which helps me understand how software quality is ensured in real projects.",
-    hu: "Az automata tesztelés alapjaival is foglalkozom önállóan, hogy jobban értsem a szoftverek minőségbiztosítását a valós projektekben.",
+    en: "I am also focusing on practical workflow habits, including planning, debugging, and building cleaner project structure.",
+    hu: "Emellett a gyakorlati munkafolyamatokra figyelek, például a tervezésre, hibakeresésre és a rendezettebb projektstruktúra kialakítására.",
   },
   "contact.title": {
     en: "Let's Connect",
