@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CV</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0b1b22;
+            /* sötét háttér, illeszkedik a CV dizájnjához */
+            height: 100%;
+        }
+
+        img.cv-image {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            background: #0b1b22;
+            /* ha a kép nem tölti ki a teljes magasságot */
+        }
+    </style>
+</head>
+
+<body>
+    <img class="cv-image" src="CV/Szucs_Gergely_CV.png" alt="CV">
+
+    <script>
+        (function () {
+            function getParam(name) {
+                const params = new URLSearchParams(window.location.search);
+                return params.get(name);
+            }
+            const lang = getParam('lang');
+            const img = document.querySelector('.cv-image');
+            if (!img) return;
+            if (lang === 'en') img.src = 'CV/Gergely_Szucs_CV.png';
+            else if (lang === 'hu') img.src = 'CV/Szucs_Gergely_CV.png';
+            else img.src = img.src || 'CV/cv.png';
+        })();
+    </script>
+</body>
+
+</html>

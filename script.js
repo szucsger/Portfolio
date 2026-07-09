@@ -483,8 +483,10 @@ function applyTranslations(lang) {
 // Download resume button functionality
 const downloadResumeBtn = document.getElementById("download-resume");
 function ChangeCVLink(lang = root.getAttribute("lang")) {
-  const resumeLink =
-    lang === "hu" ? "/CV/Szucs_Gergely_CV.pdf" : "/CV/Gergely_Szucs_CV.pdf";
+  if (!downloadResumeBtn) return;
+  const resumePage = "cv.html";
+  const codeLang = lang === "hu" ? "hu" : "en";
+  const resumeLink = `${resumePage}?lang=${codeLang}`;
   downloadResumeBtn.setAttribute("href", resumeLink);
 }
 
