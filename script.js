@@ -257,12 +257,12 @@ const translations = {
     hu: "Sikeresen elkészítettem ezt a Frontend Mentor landing page-et, megvalósítva a teljes reszponzivitást, a modern CSS elrendezéseket és a JavaScript-alapú interaktivitást. Kiváló gyakorlat volt a frontend készségeim fejlesztésére és a magabiztosságom növelésére.",
   },
   "projects.card4.title": {
-    en: "Simple Landing Page",
-    hu: "Egyszerű Landing Page",
+    en: "Space tourism multi-page website",
+    hu: "Űrutazás többoldalas weboldal",
   },
   "projects.card4.desc": {
-    en: "A simple landing page project where I applied responsive design and modern CSS techniques. This project helped me build more confidence in frontend development.",
-    hu: "Egy egyszerű landing page projekt, amelyben reszponzív dizájnt és modern CSS technikákat alkalmaztam. Ez a projekt segített abban, hogy magabiztosabbá váljak a frontend fejlesztésben.",
+    title: "Space tourism multi-page website",
+    desc: "An immersive multi-page space tourism website built based on Frontend Mentor designs. This project focuses on handling complex responsive layouts, accessible navigation, and seamless state-switching using CSS and JavaScript.",
   },
   "projects.open": {
     en: "Open Project",
