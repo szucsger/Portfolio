@@ -16,6 +16,10 @@
   --shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
   --radius-lg: 24px;
   --radius-md: 14px;
+  --design-width: 800px;
+  --scale: 1;
+  --base-ufo: 112px;
+  --base-catcher: 140px;
 }
 
 html,
@@ -180,16 +184,18 @@ select {
   right: 12px;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
   gap: 10px;
 }
 
 .hud-card {
   border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  padding: 10px 12px;
+  border-radius: 10px;
+  padding: 6px 8px;
   background: rgba(7, 25, 39, 0.78);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  min-width: 64px;
+  text-align: center;
 }
 
 .hud-card span {
@@ -203,8 +209,9 @@ select {
 
 .hud-card strong {
   font:
-    700 1.2rem "Chakra Petch",
+    700 1rem "Chakra Petch",
     sans-serif;
+  display: block;
 }
 
 .stars {
@@ -243,8 +250,8 @@ select {
 .ufo {
   position: absolute;
   /* The UFO's position is set by JavaScript, so there is no fixed top/left here. */
-  width: 112px;
-  height: 48px;
+  width: calc(var(--base-ufo) * var(--scale));
+  height: calc(48px * var(--scale));
   border-radius: 50% 50% 46% 46%;
   background: linear-gradient(180deg, #f8fdff, #9fd0ea);
   border: 2px solid #d9effb;
@@ -259,9 +266,12 @@ select {
 .ufo::before {
   content: "";
   position: absolute;
-  top: -26px;
-  width: 62px;
-  height: 34px;
+  /* smaller top dome so UFO looks like two stacked rounded shapes */
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--base-ufo) * var(--scale) * 0.65);
+  height: calc(28px * var(--scale));
   border-radius: 50% 50% 42% 42%;
   border: 2px solid rgba(219, 245, 255, 0.94);
   background: linear-gradient(180deg, #7be5ff, #3586b8);
@@ -271,7 +281,7 @@ select {
   content: "";
   position: absolute;
   bottom: -18px;
-  width: 64px;
+  width: calc(var(--base-ufo) * var(--scale));
   height: 28px;
   background: radial-gradient(
     ellipse at top,
@@ -285,8 +295,8 @@ select {
   /* The catcher's vertical position is set by CSS, horizontal position is controlled by JavaScript. */
   position: absolute;
   bottom: 28px;
-  width: 140px;
-  height: 24px;
+  width: calc(var(--base-catcher) * var(--scale));
+  height: calc(24px * var(--scale));
   border-radius: 12px;
   border: 2px solid rgba(102, 245, 154, 0.6);
   background: linear-gradient(
@@ -298,18 +308,20 @@ select {
 }
 
 .status-pill {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  padding: 0.45rem 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 201, 77, 0.45);
   color: #ffe9ac;
   background: rgba(255, 201, 77, 0.08);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 600;
+  justify-self: end;
+  align-self: center;
 }
 
 .side-panel {
@@ -355,11 +367,12 @@ select {
 
 .controls {
   display: flex;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+  width: 100%;
 }
 .key {
-  width: 25%;
+  flex: 1 1 0;
+  min-width: 0;
   border: 1px solid rgba(119, 212, 255, 0.34);
   border-radius: 10px;
   text-align: center;
@@ -369,6 +382,27 @@ select {
     sans-serif;
   background: rgba(8, 26, 40, 0.68);
   color: var(--cyan);
+}
+
+/* Default: show desktop controls, hide mobile instruction */
+.desktop-controls {
+  display: flex;
+  gap: 8px;
+  flex: 1 1 0;
+}
+.mobile-controls {
+  display: none;
+}
+
+.mobile-controls {
+  display: none;
+}
+.mobile-instruction {
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  background: rgba(7, 25, 39, 0.6);
+  border-radius: 10px;
 }
 
 .panel-stats {
@@ -482,7 +516,27 @@ select {
   }
 
   .hud {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* swap controls display on mobile: hide desktop keys, show mobile instruction */
+  .desktop-controls {
+    display: none;
+  }
+  .mobile-controls {
+    display: block;
+  }
+  /* Make status-pill inline in HUD on mobile */
+  .status-pill {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin-left: auto;
+    align-self: center;
   }
 }
 

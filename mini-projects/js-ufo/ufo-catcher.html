@@ -47,6 +47,7 @@
                         <span>STREAK</span>
                         <strong id="streak-value">x4</strong>
                     </div>
+                    <div id="wave-indicator" class="status-pill">WAVE 2 / 5</div>
                 </div>
 
                 <div class="stars" aria-hidden="true"></div>
@@ -54,7 +55,7 @@
                 <div id="ufo" class="ufo" aria-hidden="true"></div>
                 <!-- The catcher's vertical position is handled by CSS, horizontal by JavaScript. -->
                 <div id="catcher" class="catcher" aria-hidden="true"></div>
-                <div id="wave-indicator" class="status-pill">WAVE 2 / 5</div>
+
                 <div id="game-over" class="game-over-overlay" hidden>
                     <h2>MISSION COMPLETE</h2>
                     <p>Final Score: <strong id="final-score">0</strong></p>
@@ -74,10 +75,15 @@
                 <section class="panel-block">
                     <h3>Controls</h3>
                     <div class="controls">
-                        <div class="key">A</div>
-                        <div class="key">D</div>
-                        <div class="key">←</div>
-                        <div class="key">→</div>
+                        <div class="desktop-controls">
+                            <div class="key">A</div>
+                            <div class="key">D</div>
+                            <div class="key">←</div>
+                            <div class="key">→</div>
+                        </div>
+                        <div class="mobile-controls" aria-hidden="true">
+                            <div class="mobile-instruction">Mobile: touch & drag or tap left/right</div>
+                        </div>
                     </div>
                 </section>
 

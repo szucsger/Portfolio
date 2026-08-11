@@ -16,6 +16,8 @@ const total_catches = document.querySelector("#total-catches");
 const accuracy = document.querySelector("#accuracy");
 const difficulty_label = document.querySelector("#difficulty-label");
 const difficulty_fill = document.querySelector("#difficulty-fill");
+const design_width = 800;
+let dragging = false;
 
 const state = {
   score: 0,
@@ -46,6 +48,41 @@ const state = {
   ufoHitBottomThisFrame: false,
   caughtThisFrame: false,
 };
+
+function reflowScale() {
+  let area = game_area;
+  let scale = Math.max(0.5, Math.min(1, area.clientWidth / design_width));
+  area.style.setProperty("--scale", scale);
+  state.scale = scale;
+  state.gamewidth = area.clientWidth;
+  state.gameheight = area.clientHeight;
+}
+
+// Debounce function to limit how often a function can be called.
+function debounce(fn, wait = 120) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), wait);
+  };
+}
+
+// Handles window resize and orientation change events to adjust game scaling and catcher position.
+function handleResize() {
+  const prevWidth = state.gamewidth || design_width;
+  reflowScale();
+  const rel = prevWidth ? state.targetCatcherX / prevWidth : 0.5;
+  state.catcherX = rel * state.gamewidth;
+  state.targetCatcherX = Math.max(
+    0,
+    Math.min(state.catcherX, state.gamewidth - catcher.clientWidth),
+  );
+  renderCatcher();
+  renderUfo();
+}
+
+window.addEventListener("resize", debounce(handleResize, 120));
+window.addEventListener("orientationchange", debounce(handleResize, 200));
 
 /*
   Core game logic.
@@ -118,6 +155,7 @@ function initGame() {
   state.isRunning = false;
   state.isPaused = false;
   pause_button.innerText = "Pause";
+  start_button.innerText = "Start Mission";
   state.justCaught = false;
   state.ufoHitBottomThisFrame = false;
   state.caughtThisFrame = false;
@@ -130,7 +168,7 @@ function initGame() {
 
 // Moves the catcher in the given direction within the play area.
 function moveCatcher(direction) {
-  let speed = 20; // pixels per key press
+  let speed = 20 * (state.scale || 1); // pixels per key press
   let newX = state.targetCatcherX + direction * speed;
   let maxX = state.gamewidth - catcher.clientWidth;
   if (newX < 0) {
@@ -168,13 +206,56 @@ function setupControls() {
   });
 }
 
+// Binds pointer (mouse/touch) controls.
+function setupPointerControls() {
+  game_area.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    updateTargetFromPointer(event);
+  });
+  game_area.addEventListener("pointerdown", (event) => {
+    try {
+      game_area.setPointerCapture(event.pointerId);
+    } catch (e) {}
+    dragging = true;
+    updateTargetFromPointer(event);
+  });
+  game_area.addEventListener("pointerup", (event) => {
+    try {
+      game_area.releasePointerCapture(event.pointerId);
+    } catch (e) {}
+    dragging = false;
+  });
+  game_area.addEventListener("pointercancel", (event) => {
+    try {
+      game_area.releasePointerCapture(event.pointerId);
+    } catch (e) {}
+    dragging = false;
+  });
+}
+
+// Updates the target catcher position based on pointer movement.
+function updateTargetFromPointer(event) {
+  const rect = game_area.getBoundingClientRect();
+  const rawX = event.clientX - rect.left - catcher.clientWidth / 2; // center under pointer
+  const maxX = Math.max(0, state.gamewidth - catcher.clientWidth);
+  const clampedX = Math.max(0, Math.min(rawX, maxX));
+  state.targetCatcherX = clampedX;
+}
+
 // Updates UFO movement and edge bounces.
 function updateUfo() {
-  // Move the UFO horizontally and vertically.
-  state.ufoX += state.ufoDirection * state.ufoSpeed;
+  // Move the UFO horizontally and vertically (scaled).
+  const s = state.scale || 1;
+  state.ufoX += state.ufoDirection * state.ufoSpeed * s;
   // Reverse direction at the edges.
+  const maxX = Math.max(0, state.gamewidth - ufo.clientWidth);
   if (state.ufoX <= 0) {
     state.ufoX = 0;
+    state.ufoDirection *= -1;
+  }
+
+  if (state.ufoX >= maxX) {
+    state.ufoX = maxX;
     state.ufoDirection *= -1;
   }
 
@@ -185,12 +266,8 @@ function updateUfo() {
     state.ufoVSpeed = 0.9 + Math.random() * 0.6;
   }
 
-  if (state.ufoX >= state.gamewidth - ufo.clientWidth) {
-    state.ufoX = state.gamewidth - ufo.clientWidth;
-    state.ufoDirection *= -1;
-  }
-  // Bounce between the upper and lower bounds.
-  state.ufoY += state.ufoVDir * state.ufoVSpeed;
+  // Bounce between the upper and lower bounds (scaled vertical).
+  state.ufoY += state.ufoVDir * state.ufoVSpeed * s;
   if (state.ufoY <= state.ufoMinY) {
     state.ufoY = state.ufoMinY;
     state.ufoVDir = 1;
@@ -406,6 +483,7 @@ function showGameOver() {
   state.isRunning = false;
   final_score.innerText = state.score;
   game_over_overlay.style.display = "flex";
+  start_button.innerText = "Start Mission";
   start_button.disabled = true;
   pause_button.disabled = true;
   restart_button.disabled = false;
@@ -425,11 +503,24 @@ function hideGameOver() {
 
 start_button.addEventListener("click", function () {
   if (!state.isRunning) {
+    // Start the game
     state.isRunning = true;
     state.isPaused = false;
     startTimer();
     gameLoop();
-    start_button.disabled = true;
+    start_button.innerText = "Stop";
+    pause_button.disabled = false;
+    restart_button.disabled = false;
+  } else {
+    // Stop the game and reset to initial state
+    state.isRunning = false;
+    state.isPaused = false;
+    stopGameLoop();
+    stopTimer();
+    // Reinitialize game state and UI
+    initGame();
+    pause_button.innerText = "Pause";
+    restart_button.disabled = false;
   }
 });
 
@@ -440,12 +531,10 @@ pause_button.addEventListener("click", function () {
     state.animationFrameID = null;
 
     pause_button.innerText = "Resume";
-    start_button.disabled = false;
   } else if (state.isRunning && state.isPaused) {
     state.isPaused = false;
     gameLoop();
     pause_button.innerText = "Pause";
-    start_button.disabled = true;
   }
 });
 
@@ -462,14 +551,14 @@ restart_button.addEventListener("click", function () {
 
   // Reset the UI.
   pause_button.innerText = "Pause";
-  start_button.disabled = false;
+  start_button.innerText = "Start Mission";
 
   // Restart immediately.
   state.isRunning = true;
   state.isPaused = false;
   startTimer();
   gameLoop();
-  start_button.disabled = true;
+  start_button.innerText = "Stop";
 
   restart_button.disabled = false;
 });
@@ -481,8 +570,12 @@ play_again_button.addEventListener("click", function () {
   state.ufoSpeed = 3;
   initGame();
   pause_button.innerText = "Pause";
+  start_button.innerText = "Start Mission";
   start_button.disabled = false;
 });
 
+reflowScale();
 initGame();
 setupControls();
+setupPointerControls();
+handleResize();
