@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="quiz-page bg-body-tertiary">
+    <main class="quiz-app container py-5">
+        <header class="quiz-header text-center mb-4">
+            <p class="quiz-kicker text-uppercase fw-semibold text-primary mb-2">Mini project</p>
+            <h1 class="quiz-title display-5 fw-bold mb-3">Quiz</h1>
+            <p class="quiz-description lead text-secondary mb-0">Answer the questions, collect points, and see your
+                result at the end.</p>
+        </header>
+
+        <section class="quiz-status card shadow-sm border-0 mb-4" aria-label="Quiz status">
+            <div class="card-body d-flex justify-content-between gap-3 flex-wrap">
+                <div class="status-item">
+                    <span class="status-label d-block text-secondary small text-uppercase">Score</span>
+                    <strong id="score-display" class="fs-4">0</strong>
+                </div>
+                <div class="status-item text-end ms-auto">
+                    <span class="status-label d-block text-secondary small text-uppercase">Question</span>
+                    <strong id="question-progress" class="fs-4">1 / 10</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-card card shadow-lg border-0" aria-live="polite">
+            <div class="card-body p-4 p-md-5">
+                <p class="quiz-meta badge text-bg-primary-subtle text-primary border border-primary-subtle mb-3"
+                    id="question-meta">Category · difficulty</p>
+                <h2 id="question-text" class="h3 fw-bold mb-4">The question text appears here</h2>
+
+                <div class="choices d-grid gap-3" id="choices-container" aria-label="Answer choices">
+                    <button type="button" class="choice-button btn btn-outline-dark btn-lg text-start">First
+                        answer</button>
+                    <button type="button" class="choice-button btn btn-outline-dark btn-lg text-start">Second
+                        answer</button>
+                    <button type="button" class="choice-button btn btn-outline-dark btn-lg text-start">Third
+                        answer</button>
+                    <button type="button" class="choice-button btn btn-outline-dark btn-lg text-start">Fourth
+                        answer</button>
+                </div>
+
+                <div class="quiz-actions d-flex flex-wrap gap-3 mt-4">
+                    <button type="button" id="submit-button" class="btn btn-primary btn-lg">Submit answer</button>
+                    <button type="button" id="next-button" class="btn btn-outline-primary btn-lg">Next
+                        question</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="results-modal" id="results-modal" hidden aria-hidden="true" aria-labelledby="results-title">
+        <div class="results-backdrop"></div>
+        <div class="results-panel card shadow-lg border-0" role="dialog" aria-modal="true">
+            <div class="card-body p-4 p-md-5 text-center">
+                <h2 id="results-title" class="h3 fw-bold mb-3">Result</h2>
+                <p id="results-summary" class="lead text-secondary">Your final score appears here.</p>
+
+                <div class="results-stats d-flex justify-content-center gap-4 flex-wrap my-4">
+                    <div class="status-item">
+                        <span class="status-label d-block text-secondary small text-uppercase">Correct answers</span>
+                        <strong id="correct-count" class="fs-4">0</strong>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label d-block text-secondary small text-uppercase">Total questions</span>
+                        <strong id="total-count" class="fs-4">10</strong>
+                    </div>
+                </div>
+
+                <button type="button" id="close-results" class="btn btn-primary btn-lg">Close</button>
+                <button type="button" id="restart-quiz" class="btn btn-secondary btn-lg">Restart Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
