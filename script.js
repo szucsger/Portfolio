@@ -269,8 +269,8 @@ const translations = {
     hu: "PHP + MySQL gyakorló projekt - Kvíz alkalmazás",
   },
   "projects.card5.desc": {
-    en: "A full-stack quiz app that combines a TypeScript frontend with a PHP API and MySQL database. It supports score tracking, a final results modal, and a restart flow designed to reduce immediate question repeats.",
-    hu: "Egy full-stack kvíz alkalmazás, amely TypeScript frontendből, PHP API-ból és MySQL adatbázisból áll. Tartalmaz pontszámkövetést, végső eredmény modalt, valamint egy újraindítási folyamatot, amely csökkenti a közvetlen kérdésismétléseket.",
+    en: "A full-stack quiz app built with a TypeScript frontend, PHP API, and MySQL database. It includes score tracking, a final results modal, and restart logic to reduce immediate repeats. This project currently runs locally with Docker.",
+    hu: "Egy full-stack kvíz alkalmazás TypeScript frontenddel, PHP API-val és MySQL adatbázissal. Tartalmaz pontszámkövetést, végső eredmény modalt és újraindítási logikát a közvetlen ismétlések csökkentésére. Ez a projekt jelenleg helyben, Dockerrel fut.",
   },
   "projects.open": {
     en: "Open Project",
