@@ -261,8 +261,16 @@ const translations = {
     hu: "Űrutazás többoldalas weboldal",
   },
   "projects.card4.desc": {
-    title: "Space tourism multi-page website",
-    desc: "An immersive multi-page space tourism website built based on Frontend Mentor designs. This project focuses on handling complex responsive layouts, accessible navigation, and seamless state-switching using CSS and JavaScript.",
+    en: "An immersive multi-page space tourism website built based on Frontend Mentor designs. This project focuses on handling complex responsive layouts, accessible navigation, and seamless state-switching using CSS and JavaScript.",
+    hu: "Egy magával ragadó, többoldalas űrutazás témájú weboldal Frontend Mentor tervek alapján. A projekt középpontjában az összetett reszponzív elrendezések, az akadálymentes navigáció és a zökkenőmentes állapotváltás áll CSS és JavaScript használatával.",
+  },
+  "projects.card5.title": {
+    en: "PHP + MySQL Practice Project - Quiz App",
+    hu: "PHP + MySQL gyakorló projekt - Kvíz alkalmazás",
+  },
+  "projects.card5.desc": {
+    en: "A full-stack quiz app that combines a TypeScript frontend with a PHP API and MySQL database. It supports score tracking, a final results modal, and a restart flow designed to reduce immediate question repeats.",
+    hu: "Egy full-stack kvíz alkalmazás, amely TypeScript frontendből, PHP API-ból és MySQL adatbázisból áll. Tartalmaz pontszámkövetést, végső eredmény modalt, valamint egy újraindítási folyamatot, amely csökkenti a közvetlen kérdésismétléseket.",
   },
   "projects.open": {
     en: "Open Project",
